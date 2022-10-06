@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-
+import { PropTypes } from 'prop-types';
 import Switch from '../Switch';
 import { Container, Title, CustomLink, Element, Row } from './styles';
 
@@ -20,4 +20,8 @@ const Header = ({ toggleTheme, titleTheme }) => {
   );
 };
 
+Header.propTypes = {
+  toggleTheme: PropTypes.func,
+  titleTheme: PropTypes.string.isRequired,
+};
 export default Header;
