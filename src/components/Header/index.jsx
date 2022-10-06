@@ -6,7 +6,7 @@ import { Container, Title, CustomLink, Element, Row } from './styles';
 const Header = ({ toggleTheme, titleTheme }) => {
   return (
     <Container>
-      <Title>Calculator App</Title>
+      <Title type="app name">Calculator App</Title>
       <Row>
         <Element>
           <Link to="/">Home</Link>

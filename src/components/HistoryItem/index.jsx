@@ -2,7 +2,7 @@ import { Container } from './styles';
 import { PropTypes } from 'prop-types';
 
 const HistoryItem = ({ item }) => {
-  return <Container>{item}</Container>;
+  return <Container type="historyItem">{item}</Container>;
 };
 
 HistoryItem.propTypes = {

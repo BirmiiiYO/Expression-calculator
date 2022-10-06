@@ -1,64 +1,121 @@
-function expressionCalculator(expr) {
-  let str2 = [0, 0, 0];
-  let buffer = expr.replace(/-/g, '- ');
-  let bracket = '';
-
-  if (buffer.split('(').length != buffer.split(')').length)
-    throw 'ExpressionError: Brackets must be paired';
-
-  if (buffer.includes('(')) {
-    while (buffer.includes('(')) {
-      for (let i = 0; i < buffer.length; i++) {
-        if (buffer[i] == '(') {
-          str2[2]++;
-          str2[0] = i;
-        }
-        if (buffer[i] == ')') {
-          str2[1] = i;
-          break;
-        }
-      }
-      bracket = buffer.slice(str2[0] + 1, str2[1]);
-      buffer =
-        String(buffer.slice(0, str2[0])) + String(sum(bracket)) + String(buffer.slice(str2[1] + 1));
+function expressionCalculator(str) {
+  if (/[()]/.test(str)) {
+    let brackets = str.match(/[()]/g).join('');
+    while (brackets.includes('()') === true) {
+      brackets = brackets.replace('()', '');
     }
-    return sum(buffer);
-  }
-  return sum(buffer);
-
-  function sum(str) {
-    let result = 0;
-    let plus = str.split('+');
-    for (let i = 0; i < plus.length; i++) result += +splitSubtraction(plus[i]);
-    if (result === Infinity) throw 'TypeError: Division by zero.';
-    return result;
-  }
-
-  function splitSubtraction(expr) {
-    let res = 0;
-    expr = expr.split('- ');
-    res = splitMultiply(expr[0]);
-    for (let i = 1; i < expr.length; i++) res -= splitMultiply(expr[i]);
-    return res;
-  }
-
-  function splitMultiply(expr) {
-    let res = 1;
-    expr = expr.split('*');
-    for (let i = 0; i < expr.length; i++) res *= splitDivide(expr[i]);
-    return res;
-  }
-
-  function splitDivide(expr) {
-    let res = 1;
-    if (!expr.match(/\//g)) return expr;
-    expr = expr.split('/');
-    res = splitDivide(expr[0]);
-    for (let i = 1; i < expr.length; i++) {
-      res /= expr[i];
+    if (brackets.length !== 0) {
+      throw new Error('ExpressionError: Brackets must be paired');
     }
-    return res;
   }
+
+  str = str.match(/[[0-9]+|[+\-*/()]/g);
+
+  let postfixExpresison = transformInPostfix(str);
+
+  let result = postfixExpresison.reduce((accumulator, element) => {
+    let ints;
+    switch (true) {
+      case !isNaN(element):
+        accumulator.push(element);
+        break;
+      case /[+\-*/]/.test(element):
+        switch (element) {
+          case '+':
+            ints = accumulator.splice(-2);
+            accumulator.push(Number(ints[0]) + Number(ints[1]));
+            break;
+          case '-':
+            ints = accumulator.splice(-2);
+            accumulator.push(Number(ints[0]) - Number(ints[1]));
+            break;
+          case '*':
+            ints = accumulator.splice(-2);
+            accumulator.push(Number(ints[0]) * Number(ints[1]));
+            break;
+          case '/':
+            ints = accumulator.splice(-2);
+            if (Number(ints[1]) === 0) {
+              throw new TypeError('TypeError: Division by zero.');
+            } else {
+              accumulator.push(Number(ints[0]) / Number(ints[1]));
+            }
+            break;
+          default:
+            break;
+        }
+        break;
+      default:
+        break;
+    }
+    return accumulator;
+  }, [])[0];
+  return result;
+}
+
+function transformInPostfix(str) {
+  let stack = [];
+  let postfixExpresison = str.reduce((accumulator, element) => {
+    switch (true) {
+      case !isNaN(element):
+        accumulator.push(element);
+        break;
+      case /[+-]/.test(element):
+        if (stack.length === 0 || stack[stack.length - 1] === '(') {
+          stack.push(element);
+        } else {
+          let i = stack.length - 1;
+          while (i >= 0) {
+            if (/[(]/.test(stack[i])) {
+              break;
+            } else {
+              accumulator.push(stack[i]);
+              stack.pop();
+            }
+            i -= 1;
+          }
+          stack.push(element);
+        }
+        break;
+      case /[/*]/.test(element):
+        if (stack.length === 0 || /[-+(]/.test(stack[stack.length - 1])) {
+          stack.push(element);
+        } else {
+          let i = stack.length - 1;
+          while (i >= 0) {
+            if (!/[-+(]/.test(stack[i])) {
+              accumulator.push(stack[i]);
+              stack.pop();
+              break;
+            }
+            i -= 1;
+          }
+          stack.push(element);
+        }
+        break;
+      case /[(]/.test(element):
+        stack.push(element);
+        break;
+      case /[)]/.test(element):
+        let i = stack.length - 1;
+        while (i >= 0) {
+          if (stack[i] === '(') {
+            stack.splice(i, 1);
+            break;
+          } else {
+            accumulator.push(stack[i]);
+            stack.pop();
+          }
+          i -= 1;
+        }
+        break;
+      default:
+        break;
+    }
+    return accumulator;
+  }, []);
+  stack.reverse().forEach((element) => postfixExpresison.push(element));
+  return postfixExpresison;
 }
 
 export default expressionCalculator;

@@ -4,26 +4,26 @@ import { useContext } from 'react';
 import expressionCalculator from '../../helpers/math';
 
 const btnValues = [
-  ['%', 7, 8, 9, '*'],
+  ['.', 7, 8, 9, '*'],
   ['-', 4, 5, 6, '/'],
   ['+', 1, 2, 3, '='],
-  ['.', '(', '0', ')', 'CE'],
+  ['C', '(', 0, ')', 'CE'],
 ];
 
 const ControlPanel = () => {
   const [expr, setExpr, history, setHistory] = useContext(CalcContext);
 
   const updateCalc = (value) => {
+    if (expr === 0 || '') return;
+
     switch (value) {
-      case '0':
-        if (expr === 0 || '') return expr;
-        setExpr(expr + value);
       case '=':
         setHistory([...history, expr]);
-        setExpr(expressionCalculator(expr));
+        let result = expressionCalculator(expr);
+        setExpr(result.toFixed(0));
         break;
       case 'C':
-        setExpr('');
+        setExpr(expr.substring(0, expr.length - 1));
         break;
       case 'CE':
         setExpr('');
@@ -39,7 +39,7 @@ const ControlPanel = () => {
       {btnValues.map((row, i) => (
         <Row key={i}>
           {row.map((value) => (
-            <Button key={value} onClick={() => updateCalc(value)}>
+            <Button key={value} type={value} onClick={() => updateCalc(value)}>
               {value}
             </Button>
           ))}

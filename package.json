@@ -12,7 +12,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "cypress": "cypress run"
+    "cypress:open": "cypress open"
   },
   "resolutions": {
     "styled-components": "^5"
@@ -30,6 +30,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^10.9.0",
     "prop-types": "^15.8.1"
   }
 }
