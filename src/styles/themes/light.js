@@ -1,7 +1,7 @@
 export default {
   title: 'light',
   colors: {
-    backgroundColor: '#f3eeee;',
-    text: '#100f0f;',
+    backgroundColor: 'rgb(243, 238, 238)',
+    text: 'rgb(16, 15, 15)',
   },
 };

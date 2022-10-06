@@ -20,7 +20,7 @@ const ControlPanel = () => {
       case '=':
         setHistory([...history, expr]);
         let result = expressionCalculator(expr);
-        setExpr(result.toFixed(0));
+        setExpr(+result.toFixed(3));
         break;
       case 'C':
         setExpr(expr.substring(0, expr.length - 1));

@@ -8,12 +8,18 @@ const History = () => {
   return (
     <Container>
       <Title>Operation history:</Title>
-      <Ul>
+      <Ul type="list">
         {history.length === 0
           ? 'history is empty'
           : history.map((item) => <HistoryItem item={item} />)}
-        {history.length === 0 ? '' : <Button onClick={() => setHistory([])}>Delete history</Button>}
       </Ul>
+      {history.length === 0 ? (
+        ''
+      ) : (
+        <Button onClick={() => setHistory([])} type="delete">
+          Delete history
+        </Button>
+      )}
     </Container>
   );
 };

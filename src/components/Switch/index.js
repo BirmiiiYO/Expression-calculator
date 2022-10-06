@@ -5,7 +5,7 @@ import { Container, Title } from './styles';
 const Switch = ({ toggleTheme, titleTheme }) => {
   return (
     <Container onClick={toggleTheme}>
-      <Title>{titleTheme}</Title>
+      <Title type={titleTheme}>{titleTheme}</Title>
     </Container>
   );
 };

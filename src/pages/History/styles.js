@@ -9,7 +9,9 @@ export const Container = styled.div`
   margin: 20px 0 10px;
   min-height: 511px;
 `;
-export const Ul = styled.ul`
+export const Ul = styled.ul.attrs(() => ({
+  type: 'list',
+}))`
   display: flex;
   flex-direction: column;
   justify-content: center;
