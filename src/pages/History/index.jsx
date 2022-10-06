@@ -1,8 +1,11 @@
-import { Container, Title, Button, Ul } from './styles';
+import { useContext } from 'react';
+
 import { CalcContext } from './../../store';
-import { useContext, useState } from 'react';
-import HistoryItem from '../../components/HistoryItem';
-const History = () => {
+import { HistoryItem } from '../../components';
+
+import { Container, Title, Button, Ul } from './styles';
+
+export const History = () => {
   const [, , history, setHistory] = useContext(CalcContext);
 
   return (
@@ -23,5 +26,3 @@ const History = () => {
     </Container>
   );
 };
-
-export default History;

@@ -1,4 +1,4 @@
-function expressionCalculator(expr) {
+export function expressionCalculator(expr) {
   function get_array(raw_str) {
     let raw_array = [];
     let substring = '';
@@ -145,5 +145,3 @@ function expressionCalculator(expr) {
   let answer = get_result(exercise);
   return answer;
 }
-
-export default expressionCalculator;

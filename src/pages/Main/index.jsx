@@ -1,9 +1,8 @@
+import { Display, ControlPanel } from '../../components';
+
 import { Container } from './styles';
 
-import ControlPanel from '../../components/ControlPanel';
-import Display from '../../components/Display';
-
-const Main = () => {
+export const Main = () => {
   return (
     <Container>
       <Display />
@@ -11,5 +10,3 @@ const Main = () => {
     </Container>
   );
 };
-
-export default Main;

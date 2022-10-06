@@ -8,7 +8,3 @@ export const Container = styled.div`
   font-size: 24px;
   font-weight: 500;
 `;
-export const Preequal = styled.span`
-  font-size: 16px;
-  margin-right: 3px;
-`;

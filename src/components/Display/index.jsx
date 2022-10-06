@@ -1,10 +1,11 @@
-import { Container } from './styles';
-import { CalcContext } from '../../store';
 import { useContext } from 'react';
-const Display = () => {
+
+import { CalcContext } from '../../store';
+
+import { Container } from './styles';
+
+export const Display = () => {
   const [expr] = useContext(CalcContext);
-  console.log(expr);
+
   return <Container type="display">{expr || '0'}</Container>;
 };
-
-export default Display;

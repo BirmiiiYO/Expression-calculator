@@ -3,10 +3,9 @@ import GlobalStyle from './styles/global';
 import light from './styles/themes/light';
 import dark from './styles/themes/dark';
 
-import Header from './components/Header';
+import { Header, Routing } from './components';
 
 import { useState } from 'react';
-import Routing from './components/Routing';
 
 const App = () => {
   const [theme, setTheme] = useState(dark);

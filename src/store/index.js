@@ -10,4 +10,5 @@ const Context = ({ subPages }) => {
     </CalcContext.Provider>
   );
 };
+
 export default Context;

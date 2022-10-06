@@ -1,16 +1,12 @@
-import { Container, Button, Row } from './styles';
-import { CalcContext } from '../../store';
 import { useContext } from 'react';
-import expressionCalculator from '../../helpers/math';
 
-const btnValues = [
-  ['.', 7, 8, 9, '*'],
-  ['-', 4, 5, 6, '/'],
-  ['+', 1, 2, 3, '='],
-  ['C', '(', 0, ')', 'CE'],
-];
+import { expressionCalculator } from '../../helpers';
+import { CalcContext } from '../../store';
+import { btnValues } from '../../constants';
 
-const ControlPanel = () => {
+import { Container, Button, Row } from './styles';
+
+export const ControlPanel = () => {
   const [expr, setExpr, history, setHistory] = useContext(CalcContext);
 
   const updateCalc = (value) => {
@@ -48,5 +44,3 @@ const ControlPanel = () => {
     </Container>
   );
 };
-
-export default ControlPanel;

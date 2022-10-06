@@ -1,16 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import History from '../../pages/History';
-import Main from '../../pages/Main';
 
-const Routing = () => {
-  return (
-    <main>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/history" element={<History />} />
-      </Routes>
-    </main>
-  );
-};
+import { History, Main } from '../../pages';
 
-export default Routing;
+export const Routing = () => (
+  <Routes>
+    <Route path="/" element={<Main />} />
+    <Route path="/history" element={<History />} />
+  </Routes>
+);
