@@ -1,31 +1,34 @@
 import { Container, Button, Row } from './styles';
 import { CalcContext } from '../../store';
 import { useContext } from 'react';
+import expressionCalculator from '../../helpers/math';
 
 const ControlPanel = () => {
-  const [calculator, setCalсulator, history, setHistory] = useContext(CalcContext);
-  console.log(history);
-  const cal = (data) => {
-    try {
-      return new Function('return (' + data + ')')();
-    } catch (err) {
-      return '';
-    }
-  };
+  const [expr, setExpr, history, setHistory] = useContext(CalcContext);
+
   const updateCalc = (value) => {
+    if (expr === '0') {
+      return setExpr('');
+    }
     switch (value) {
+      case '1' || '2' || '3' || '4' || '5' || '6' || '7' || '8' || '9':
+        setExpr(expr + value);
+        break;
+      case '0':
+        if (expr === 0 || '') return;
+        setExpr(expr + value);
       case '=':
-        setHistory([...history, calculator]);
-        setCalсulator(cal(calculator));
+        setHistory([...history, expr]);
+        setExpr(expressionCalculator(expr));
         break;
       case 'C':
-        setCalсulator('');
+        setExpr('');
         break;
       case 'CE':
-        setCalсulator('');
+        setExpr('');
         break;
       default:
-        setCalсulator(calculator + value);
+        setExpr(expr + value);
         break;
     }
   };
