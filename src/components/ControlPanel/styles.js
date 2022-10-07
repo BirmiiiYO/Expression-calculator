@@ -20,6 +20,11 @@ export const Button = styled.button`
   &:hover {
     opacity: 0.8;
   }
+  @media (max-width: 768px) {
+    width: 50px;
+    height: 50px;
+    margin: 7px;
+  }
 `;
 export const Row = styled.div`
   display: flex;

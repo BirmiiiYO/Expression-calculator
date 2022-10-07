@@ -27,6 +27,7 @@ export const Button = styled.button`
   color: ${(props) => props.theme.colors.text};
   border: 1px solid ${(props) => props.theme.colors.text};
   border-radius: 5px;
+  font-weight: 600;
   cursor: pointer;
   padding: 5px 10px;
   margin-top: 20px;

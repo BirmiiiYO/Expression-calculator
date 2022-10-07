@@ -6,4 +6,7 @@ export const Container = styled.li`
   font-size: 24px;
   letter-spacing: 2px;
   list-style-type: none;
+  @media (max-width: 500px) {
+    font-size: 20px;
+  }
 `;
