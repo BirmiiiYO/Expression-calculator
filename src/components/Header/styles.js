@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { Link } from 'react-router-dom';
 export const Container = styled.header`
   display: flex;
   justify-content: space-between;
@@ -20,4 +20,11 @@ export const Row = styled.ul`
 export const Element = styled.li`
   list-style-type: none;
   color: ${(props) => props.theme.colors.backgroundColor};
+`;
+export const CustomLink = styled(Link)`
+  color: ${(props) => props.theme.colors.text};
+  margin: 10px;
+  &:hover {
+    opacity: 0.8;
+  }
 `;

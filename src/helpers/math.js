@@ -3,32 +3,32 @@ export function expressionCalculator(expr) {
     let raw_array = [];
     let substring = '';
 
-    for (let symbol of raw_str) {
-      if (symbol == ' ' && substring != '') {
+    for (let item of raw_str) {
+      if (item == ' ' && substring != '') {
         raw_array.push(substring);
         substring = '';
-      } else if (symbol != ' ') {
+      } else if (item != ' ') {
         if (
-          symbol == '(' ||
-          symbol == ')' ||
-          symbol == '+' ||
-          symbol == '-' ||
-          symbol == '*' ||
-          symbol == '/'
+          item == '(' ||
+          item == ')' ||
+          item == '+' ||
+          item == '-' ||
+          item == '*' ||
+          item == '/'
         ) {
           raw_array.push(substring);
           substring = '';
-          raw_array.push(symbol);
+          raw_array.push(item);
         } else {
-          substring += symbol;
+          substring += item;
         }
       }
     }
-    raw_array.push(substring); // last element
+    raw_array.push(substring);
 
     let result = [];
+
     for (let i = 0; i < raw_array.length; i++) {
-      // delete empty elements
       if (raw_array[i] == '') continue;
       result.push(raw_array[i]);
     }
@@ -36,13 +36,12 @@ export function expressionCalculator(expr) {
   }
 
   function check_validation(arr) {
-    // divided on zero
     for (let i = 1; i < arr.length; i++) {
       if (arr[i] == '0' && arr[i - 1] == '/') {
         return 'TypeError: Division by zero.';
       }
     }
-    // extra nested brackets
+
     let open_brackets = 0;
     let close_brackets = 0;
 
@@ -87,7 +86,6 @@ export function expressionCalculator(expr) {
   }
 
   function get_position_of_operator(arr) {
-    // first of all "*" or "/"
     let order;
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] == '*' || arr[i] == '/') {
@@ -115,7 +113,6 @@ export function expressionCalculator(expr) {
     let copy_arr = arr.slice();
 
     while (copy_arr.includes('(')) {
-      // first of all solve inside brackets
       let positions = get_inside_of_brackets(copy_arr);
       let inside_exercise = copy_arr.slice(positions[0], positions[1]);
       let local_result = get_result(inside_exercise);
@@ -124,7 +121,6 @@ export function expressionCalculator(expr) {
     }
 
     while (copy_arr.length > 1) {
-      // if brackets aren't found => solve in accordance with the rules of algebra
       let order = get_position_of_operator(copy_arr);
 
       let num1 = Number(copy_arr[order - 1]);
