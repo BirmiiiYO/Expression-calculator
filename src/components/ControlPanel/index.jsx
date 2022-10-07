@@ -8,7 +8,7 @@ import { Container, Button, Row } from './styles';
 
 export const ControlPanel = () => {
   const [expr, setExpr, history, setHistory] = useContext(CalcContext);
-  console.log(expr);
+
   const updateCalc = (value) => {
     if (expr === 0 || '') setExpr('');
 
@@ -16,7 +16,7 @@ export const ControlPanel = () => {
       case '=':
         setHistory([...history, expr]);
         let result = expressionCalculator(expr);
-        setExpr(+result.toFixed(1));
+        setExpr(+result.toFixed(3));
         break;
       case 'C':
         setExpr(expr.substring(0, expr.length - 1));

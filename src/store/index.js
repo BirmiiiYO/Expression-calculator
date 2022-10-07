@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+
 export const CalcContext = React.createContext('');
+
 const Context = ({ subPages }) => {
   const [expr, setExpr] = useState('');
   const [history, SetHistory] = useState([]);
