@@ -1,13 +1,21 @@
 import { useContext } from 'react';
 
-import { expressionCalculator } from '../../helpers';
 import { CalcContext } from '../../store';
 import { btnValues } from '../../constants';
-
+import { expressionCalculator } from '../../helpers/math';
 import { Container, Button, Row } from './styles';
 
 export const ControlPanel = () => {
   const [expr, setExpr, history, setHistory] = useContext(CalcContext);
+
+  const checkResult = () => {
+    try {
+      let result = expressionCalculator(expr);
+      setExpr(+result.toFixed(3));
+    } catch (error) {
+      setExpr(error.message);
+    }
+  };
 
   const updateCalc = (value) => {
     if (expr === 0 || '') setExpr('');
@@ -15,8 +23,7 @@ export const ControlPanel = () => {
     switch (value) {
       case '=':
         setHistory([...history, expr]);
-        let result = expressionCalculator(expr);
-        setExpr(+result.toFixed(3));
+        checkResult();
         break;
       case 'C':
         setExpr(expr.substring(0, expr.length - 1));
@@ -30,7 +37,6 @@ export const ControlPanel = () => {
         break;
     }
   };
-
   return (
     <Container>
       {btnValues.map((row, i) => (
