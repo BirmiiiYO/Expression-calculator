@@ -14,7 +14,7 @@ export const History = () => {
       <Ul type="list">
         {history.length === 0
           ? 'history is empty'
-          : history.map((item) => <HistoryItem item={item} />)}
+          : history.map((item, i) => <HistoryItem key={`${item}_${i}`} item={item} />)}
       </Ul>
       {history.length === 0 ? (
         ''
