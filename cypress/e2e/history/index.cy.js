@@ -10,7 +10,7 @@ context('history', () => {
     cy.contains('=').click();
     cy.get(':nth-child(2) > a').click();
     cy.location('pathname').should('include', 'history');
-    cy.get('[type=list]').should('have.text', '1+2');
+    cy.get('[type=list]').should('have.text', '3');
     cy.contains('Delete history').click();
     cy.get('[type=list]').should('not.have.text');
   });
@@ -27,7 +27,7 @@ context('history', () => {
     cy.contains('=').click();
     cy.get(':nth-child(2) > a').click();
     cy.location('pathname').should('include', 'history');
-    cy.get('[type=list]').should('have.text', '1+23+4');
+    cy.get('[type=list]').should('have.text', '37');
     cy.contains('Delete history').click();
     cy.get('[type=list]').should('not.have.text');
   });

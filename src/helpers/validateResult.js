@@ -1,10 +1,11 @@
 import { expressionCalculator } from './index';
 
-export const validateResult = (expr, setExpr) => {
+export const validateResult = (expr, setExpr, addToHistory) => {
   try {
     let result = expressionCalculator(expr);
-    setExpr(+result.toFixed(3));
+    setExpr(result);
+    addToHistory(result);
   } catch (error) {
-    setExpr('Smth went wrong');
+    setExpr('Input Error');
   }
 };

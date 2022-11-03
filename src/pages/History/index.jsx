@@ -1,13 +1,10 @@
-import { useContext } from 'react';
+import { PropTypes } from 'prop-types';
 
-import { CalcContext } from './../../store';
 import { HistoryItem } from '../../components';
 
 import { Container, Title, Button, Ul } from './styles';
 
-export const History = () => {
-  const [, , history, setHistory] = useContext(CalcContext);
-
+export const History = ({ history, setHistory }) => {
   return (
     <Container>
       <Title>Operation history:</Title>
@@ -25,4 +22,9 @@ export const History = () => {
       )}
     </Container>
   );
+};
+
+History.propTypes = {
+  history: PropTypes.array.isRequired,
+  setHistory: PropTypes.func.isRequired,
 };

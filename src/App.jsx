@@ -9,14 +9,19 @@ import { useState } from 'react';
 
 const App = () => {
   const [theme, setTheme] = useState(dark);
+  const [history, setHistory] = useState([]);
+
   const toggleTheme = () => {
     setTheme(theme.title === 'light' ? dark : light);
+  };
+  const addToHistory = (value) => {
+    setHistory(history.concat(value));
   };
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Header toggleTheme={toggleTheme} titleTheme={theme.title} />
-      <Routing />
+      <Routing history={history} setHistory={setHistory} addToHistory={addToHistory} />
     </ThemeProvider>
   );
 };

@@ -139,5 +139,5 @@ export function expressionCalculator(expr) {
   if (message) throw Error(message);
 
   let answer = get_result(exercise);
-  return answer;
+  return `${+answer.toFixed(3)}`;
 }

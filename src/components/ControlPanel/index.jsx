@@ -1,20 +1,16 @@
-import { useContext } from 'react';
+import { PropTypes } from 'prop-types';
 
-import { CalcContext } from '../../store';
 import { btnValues } from '../../constants';
 import { Container, Button, Row } from './styles';
 import { validateResult } from '../../helpers';
 
-export const ControlPanel = () => {
-  const [expr, setExpr, history, setHistory] = useContext(CalcContext);
-
+export const ControlPanel = ({ expr, setExpr, setHistory, addToHistory }) => {
   const updateCalc = (value) => {
     if (value === 0 && expr === '') return;
 
     switch (value) {
       case '=':
-        setHistory([...history, expr]);
-        validateResult(expr, setExpr);
+        validateResult(expr, setExpr, addToHistory);
         break;
       case 'C':
         setExpr(expr.substring(0, expr.length - 1));
@@ -41,4 +37,11 @@ export const ControlPanel = () => {
       ))}
     </Container>
   );
+};
+
+ControlPanel.propTypes = {
+  expr: PropTypes.string.isRequired,
+  setExpr: PropTypes.func.isRequired,
+  setHistory: PropTypes.func.isRequired,
+  addToHistory: PropTypes.func.isRequired,
 };

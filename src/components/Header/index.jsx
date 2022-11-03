@@ -22,6 +22,6 @@ export const Header = ({ toggleTheme, titleTheme }) => {
 };
 
 Header.propTypes = {
-  toggleTheme: PropTypes.func,
+  toggleTheme: PropTypes.func.isRequired,
   titleTheme: PropTypes.string.isRequired,
 };
