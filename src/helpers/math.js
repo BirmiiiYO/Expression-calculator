@@ -4,17 +4,17 @@ export function expressionCalculator(expr) {
     let substring = '';
 
     for (let item of raw_str) {
-      if (item == ' ' && substring != '') {
+      if (item === ' ' && substring !== '') {
         raw_array.push(substring);
         substring = '';
-      } else if (item != ' ') {
+      } else if (item !== ' ') {
         if (
-          item == '(' ||
-          item == ')' ||
-          item == '+' ||
-          item == '-' ||
-          item == '*' ||
-          item == '/'
+          item === '(' ||
+          item === ')' ||
+          item === '+' ||
+          item === '-' ||
+          item === '*' ||
+          item === '/'
         ) {
           raw_array.push(substring);
           substring = '';
@@ -29,7 +29,7 @@ export function expressionCalculator(expr) {
     let result = [];
 
     for (let i = 0; i < raw_array.length; i++) {
-      if (raw_array[i] == '') continue;
+      if (raw_array[i] === '') continue;
       result.push(raw_array[i]);
     }
     return result;
@@ -37,7 +37,7 @@ export function expressionCalculator(expr) {
 
   function check_validation(arr) {
     for (let i = 1; i < arr.length; i++) {
-      if (arr[i] == '0' && arr[i - 1] == '/') {
+      if (arr[i] === '0' && arr[i - 1] === '/') {
         return 'TypeError: Division by zero.';
       }
     }
@@ -46,14 +46,14 @@ export function expressionCalculator(expr) {
     let close_brackets = 0;
 
     for (let element of arr) {
-      if (element == '(') open_brackets++;
-      else if (element == ')') close_brackets++;
+      if (element === '(') open_brackets++;
+      else if (element === ')') close_brackets++;
 
       if (open_brackets < close_brackets) {
         return 'ExpressionError: Brackets must be paired';
       }
     }
-    if (open_brackets != close_brackets) {
+    if (open_brackets !== close_brackets) {
       return 'ExpressionError: Brackets must be paired';
     }
 
@@ -68,16 +68,16 @@ export function expressionCalculator(expr) {
     let last_close_bracket;
 
     for (let i = 0; i < arr.length; i++) {
-      if (arr[i] == '(') {
-        if (first_open_bracket != undefined) {
+      if (arr[i] === '(') {
+        if (first_open_bracket !== undefined) {
           open_brackets++;
         } else {
           first_open_bracket = i;
           open_brackets++;
         }
-      } else if (arr[i] == ')') {
+      } else if (arr[i] === ')') {
         close_brackets++;
-        if (open_brackets == close_brackets) {
+        if (open_brackets === close_brackets) {
           last_close_bracket = i;
           return [first_open_bracket + 1, last_close_bracket];
         }
@@ -88,14 +88,14 @@ export function expressionCalculator(expr) {
   function get_position_of_operator(arr) {
     let order;
     for (let i = 0; i < arr.length; i++) {
-      if (arr[i] == '*' || arr[i] == '/') {
+      if (arr[i] === '*' || arr[i] === '/') {
         order = i;
         return order;
       }
     }
     // if "*" or "/" aren't found => search "+" or "-"
     for (let i = 0; i < arr.length; i++) {
-      if (arr[i] == '+' || arr[i] == '-') {
+      if (arr[i] === '+' || arr[i] === '-') {
         order = i;
         return order;
       }
@@ -103,10 +103,10 @@ export function expressionCalculator(expr) {
   }
 
   function calculate(a, operator, b) {
-    if (operator == '+') return a + b;
-    else if (operator == '-') return a - b;
-    else if (operator == '*') return a * b;
-    else if (operator == '/') return a / b;
+    if (operator === '+') return a + b;
+    else if (operator === '-') return a - b;
+    else if (operator === '*') return a * b;
+    else if (operator === '/') return a / b;
   }
 
   function get_result(arr) {
