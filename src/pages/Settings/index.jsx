@@ -20,6 +20,7 @@ export const Settings = () => {
         <OptionSelect value="dark">Dark</OptionSelect>
         <OptionSelect value="color">Color</OptionSelect>
       </MySelect>
+      <button>Clear history</button>
     </Container>
   )
 }

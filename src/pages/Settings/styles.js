@@ -1,10 +1,18 @@
 import styled from 'styled-components'
 
-export const Container = styled.div``
+export const Container = styled.div`
+  min-width: 1000px;
+  min-height: 70vh;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 40px 0 0;
+  background-color: ${({ theme }) =>
+    theme.colors.background};
+`
 
 export const Title = styled.p`
   font-size: 26px;
-  margin: 5px auto;
+  margin: 5px 20px 10px 0px;
 `
 
 export const MySelect = styled.select`

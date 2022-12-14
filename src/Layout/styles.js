@@ -7,6 +7,5 @@ export const LayoutWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${({ theme }) =>
-    theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.body};
 `
