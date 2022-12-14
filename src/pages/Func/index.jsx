@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { PropTypes } from 'prop-types';
+import { useState } from 'react'
+import { PropTypes } from 'prop-types'
 
-import { Display, ControlPanel } from '../../components';
+import { Display, ControlPanel } from '../../components'
 
-import { Container } from './styles';
+import { Container } from './styles'
 
-export const Main = ({ setHistory, addToHistory }) => {
-  const [expr, setExpr] = useState('');
+export const FuncCalc = ({ setHistory, addToHistory }) => {
+  const [expr, setExpr] = useState('')
   return (
     <Container>
       <Display expr={expr} />
@@ -17,10 +17,10 @@ export const Main = ({ setHistory, addToHistory }) => {
         addToHistory={addToHistory}
       />
     </Container>
-  );
-};
+  )
+}
 
-Main.propTypes = {
+FuncCalc.propTypes = {
   setHistory: PropTypes.func.isRequired,
   addToHistory: PropTypes.func.isRequired,
-};
+}

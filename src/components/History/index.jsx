@@ -1,6 +1,7 @@
+import React from 'react';
 import { PropTypes } from 'prop-types';
 
-import { HistoryItem } from '../../components';
+import { HistoryItem } from '../components';
 
 import { Container, Title, Button, Ul } from './styles';
 
@@ -26,5 +27,5 @@ export const History = ({ history, setHistory }) => {
 
 History.propTypes = {
   history: PropTypes.array.isRequired,
-  setHistory: PropTypes.func.isRequired,
+  setHistory: PropTypes.func.isRequired
 };

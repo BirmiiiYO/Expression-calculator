@@ -1,7 +1,10 @@
 export default {
   title: 'light',
   colors: {
-    backgroundColor: 'rgb(243, 238, 238)',
-    text: 'rgb(16, 15, 15)',
+    text: '#000000',
+    body: '#a5a8bc',
+    header: '#c2c2c5',
+    background: '#f5f6fe',
+    hover: '#252d69',
   },
-};
+}

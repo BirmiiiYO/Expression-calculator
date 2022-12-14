@@ -1,27 +1,25 @@
-import { PropTypes } from 'prop-types';
+import React from 'react'
 
-import { Container, Title, Element, Row, CustomLink } from './styles';
+import {
+  Button,
+  CustomLink,
+  Element,
+  HeaderContainer,
+  Title,
+} from './styles'
 
-import { Switch } from '../index';
-
-export const Header = ({ toggleTheme, titleTheme }) => {
+export const Header = () => {
   return (
-    <Container>
+    <HeaderContainer>
       <Title>Calculator App</Title>
-      <Row>
-        <Element>
-          <CustomLink to="/">Home</CustomLink>
-        </Element>
-        <Element>
-          <CustomLink to="/history">History</CustomLink>
-        </Element>
-      </Row>
-      <Switch toggleTheme={toggleTheme} titleTheme={titleTheme} />
-    </Container>
-  );
-};
 
-Header.propTypes = {
-  toggleTheme: PropTypes.func.isRequired,
-  titleTheme: PropTypes.string.isRequired,
-};
+      <CustomLink to="/settings">Settings</CustomLink>
+
+      <CustomLink to="cc">Class</CustomLink>
+
+      <CustomLink to="/fc">Func</CustomLink>
+
+      <Button>History</Button>
+    </HeaderContainer>
+  )
+}

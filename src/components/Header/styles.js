@@ -1,44 +1,43 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
-export const Container = styled.header`
+export const HeaderContainer = styled.div`
+  width: 100%;
+  height: 80px;
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  @media (max-width: 768px) {
-    justify-content: space-around;
-  }
-`;
+  background-color: ${({ theme }) => theme.colors.header};
+  border: 2px solid ${({ theme }) => theme.colors.text};
+  border-radius: 5px;
+`
 
 export const Title = styled.h1`
-  font-size: 26px;
-  color: ${(props) => props.theme.colors.text};
-  @media (max-width: 500px) {
-    font-size: 20px;
-  }
-`;
-export const Row = styled.ul`
-  font-size: 18px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 140px;
-  @media (max-width: 500px) {
-    display: flex;
-    font-size: 15px;
-    align-items: center;
-    justify-content: space-between;
-    flex-diraction: column;
-  }
-`;
-export const Element = styled.li`
-  list-style-type: none;
-  color: ${(props) => props.theme.colors.backgroundColor};
-`;
+  font-size: 30px;
+  font-style: italic;
+  color: ${({ theme }) => theme.colors.text};
+`
+
 export const CustomLink = styled(Link)`
-  color: ${(props) => props.theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
+  font-size: 20px;
   margin: 10px;
   &:hover {
-    opacity: 0.8;
+    color: ${({ theme }) => theme.colors.hover};
+    transform: scale(1.2);
   }
-`;
+`
+
+export const Button = styled.div`
+  max-width: 170px;
+  font-size: 24px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  &:hover {
+    color: ${({ theme }) => theme.colors.background};
+    background-color: ${({ theme }) => theme.colors.text};
+  }
+`

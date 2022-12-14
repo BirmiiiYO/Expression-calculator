@@ -1,2 +1,2 @@
-export * from './History';
-export * from './Main';
+export * from './Settings';
+export * from './Func';

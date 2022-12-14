@@ -10,7 +10,7 @@ export const Container = styled.div`
   min-height: 511px;
 `;
 export const Ul = styled.ul.attrs(() => ({
-  type: 'list',
+  type: 'list'
 }))`
   display: flex;
   flex-direction: column;
