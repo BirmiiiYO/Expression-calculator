@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { PropTypes } from 'prop-types'
-
+import React from 'react'
 import { Display, ControlPanel } from '../../components'
 
 import { Container } from './styles'

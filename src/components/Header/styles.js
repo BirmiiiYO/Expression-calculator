@@ -29,15 +29,9 @@ export const CustomLink = styled(Link)`
   }
 `
 
-export const Button = styled.div`
-  max-width: 170px;
-  font-size: 24px;
-  padding: 5px 10px;
-  border-radius: 10px;
+export const Links = styled.div`
+  width: 400px;
   display: flex;
   justify-content: space-between;
-  &:hover {
-    color: ${({ theme }) => theme.colors.background};
-    background-color: ${({ theme }) => theme.colors.text};
-  }
+  align-items: center;
 `

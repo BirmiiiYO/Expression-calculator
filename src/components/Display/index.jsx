@@ -1,3 +1,6 @@
-import { Container } from './styles';
+import React from 'react'
+import { Container } from './styles'
 
-export const Display = ({ expr }) => <Container type="display">{expr || '0'}</Container>;
+export const Display = () => (
+  <Container type="display">{expr || '0'}</Container>
+)

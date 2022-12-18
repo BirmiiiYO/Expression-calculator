@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, Navigate } from 'react-router-dom'
 import { PropTypes } from 'prop-types'
 
 import {
@@ -10,38 +10,16 @@ import {
 } from '../../pages'
 import { ClassCalc } from '../../pages/Class'
 
-export function Routing({
-  history,
-  setHistory,
-  addToHistory,
-}) {
+export function Routing() {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <FuncCalc
-            setHistory={setHistory}
-            addToHistory={addToHistory}
-          />
-        }
-      />
-      <Route
-        path="/cc"
-        element={
-          <ClassCalc
-            setHistory={setHistory}
-            addToHistory={addToHistory}
-          />
-        }
-      />
+      <Route path="/fc" element={<FuncCalc />} />
+      <Route path="/cc" element={<ClassCalc />} />
       <Route path="/settings" element={<Settings />} />
+      <Route
+        path="*"
+        element={<Navigate replace to="/fc" />}
+      />
     </Routes>
   )
-}
-
-Routing.propTypes = {
-  history: PropTypes.array.isRequired,
-  setHistory: PropTypes.func.isRequired,
-  addToHistory: PropTypes.func.isRequired,
 }

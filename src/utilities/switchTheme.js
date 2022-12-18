@@ -8,10 +8,10 @@ export const switchTheme = (e) => {
       }
     }
     case 'colorTheme': {
-      localStorage.setItem('theme', 'coloredTheme')
+      localStorage.setItem('theme', 'colorTheme')
       return {
-        theme: coloredTheme,
-        value: 'coloredTheme',
+        theme: colorTheme,
+        value: 'colorTheme',
       }
     }
     case 'darkTheme': {
