@@ -5,22 +5,12 @@ import { Display, ControlPanel } from '../../components'
 
 import { Container } from './styles'
 
-export const FuncCalc = ({ setHistory, addToHistory }) => {
+export const FuncCalc = () => {
   const [expr, setExpr] = useState('')
   return (
     <Container>
       <Display expr={expr} />
-      <ControlPanel
-        expr={expr}
-        setExpr={setExpr}
-        setHistory={setHistory}
-        addToHistory={addToHistory}
-      />
+      <ControlPanel expr={expr} setExpr={setExpr} />
     </Container>
   )
-}
-
-FuncCalc.propTypes = {
-  setHistory: PropTypes.func.isRequired,
-  addToHistory: PropTypes.func.isRequired,
 }

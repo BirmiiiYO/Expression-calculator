@@ -1,21 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyle from './styles/global'
-import light from './styles/themes/light'
-import dark from './styles/themes/dark'
-import color from './styles/themes/color'
 
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { Header, Routing } from './components'
+import Layout from './Layout'
+import { ThemeContext } from './ThemeContext'
 
 const App = () => {
-  const theme = dark
+  const { theme } = React.useContext(ThemeContext)
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <Header />
       <ErrorBoundary>
-        <Header />
-        {/* <Routing /> */}
+        <Layout>
+          <Routing />
+        </Layout>
       </ErrorBoundary>
     </ThemeProvider>
   )

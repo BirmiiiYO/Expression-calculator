@@ -4,12 +4,7 @@ import { btnValues } from '../../constants'
 import { Container, Button, Row } from './styles'
 import { validateResult } from '../../helpers'
 
-export const ControlPanel = ({
-  expr,
-  setExpr,
-  setHistory,
-  addToHistory,
-}) => {
+export const ControlPanel = ({ expr, setExpr }) => {
   const updateCalc = (value) => {
     if (value === 0 && expr === '') return
 
@@ -50,6 +45,4 @@ export const ControlPanel = ({
 ControlPanel.propTypes = {
   expr: PropTypes.string.isRequired,
   setExpr: PropTypes.func.isRequired,
-  setHistory: PropTypes.func.isRequired,
-  addToHistory: PropTypes.func.isRequired,
 }

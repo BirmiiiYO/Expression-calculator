@@ -8,29 +8,26 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.colors.header};
-  border: 2px solid ${({ theme }) => theme.colors.text};
-  border-radius: 5px;
+  background-color: ${({ theme }) => theme.header};
+  color: ${({ theme }) => theme.text};
 `
 
 export const Title = styled.h1`
   font-size: 30px;
   font-style: italic;
-  color: ${({ theme }) => theme.colors.text};
 `
 
 export const CustomLink = styled(Link)`
-  color: ${({ theme }) => theme.colors.text};
+  color: ${({ theme }) => theme.text};
   font-size: 20px;
   margin: 10px;
   &:hover {
-    color: ${({ theme }) => theme.colors.hover};
     transform: scale(1.2);
   }
 `
 
 export const Links = styled.div`
-  width: 400px;
+  width: 350px;
   display: flex;
   justify-content: space-between;
   align-items: center;

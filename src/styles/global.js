@@ -9,12 +9,11 @@ export default createGlobalStyle`
     text-decoration: none;
   }
   body {
-    background-color: ${({ theme }) => theme.colors.body};
-    color: ${({ theme }) => theme.colors.text};
+    background-color: ${({ theme }) => theme.body};
+    color: ${({ theme }) => theme.text};
     transition: background-color 1000ms linear;
     font-family: 'Space Mono', monospace;
     font-size: 16px;
     font-weight: 500;
-    margin:10px;
   }
 `
