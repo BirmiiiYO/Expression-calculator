@@ -1,14 +1,11 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const Container = styled.div`
-  padding: 16px;
+export const DisplayText = styled.div`
+  border-bottom: 5px solid;
+  font-weight: 600;
+  font-size: 14px;
+  height: 30px;
+  padding: 5px;
   text-align: right;
-  margin-top: 20px;
-  width: 450px;
-  font-size: 24px;
-  font-weight: 500;
-  overflow: hidden;
-  @media (max-width: 768px) {
-    width: 320px;
-  }
-`;
+  width: 100%;
+`

@@ -73,7 +73,7 @@ export class DivCommand extends Command {
   }
 }
 
-export class RemrCommand extends Command {
+export class RemCommand extends Command {
   constructor(value) {
     super(rem, mul, Number(value))
   }

@@ -1,29 +1,14 @@
-import { PropTypes } from 'prop-types'
-import React from 'react'
-import { btnValues } from '../../constants'
+import React, { memo } from 'react'
+import PropTypes from 'prop-types'
+
+import { btnValues } from '../../constants/keyboard'
+
 import { Container, Button, Row } from './styles'
-import { validateResult } from '../../helpers'
 
-export const ControlPanel = ({ expr, setExpr }) => {
-  const updateCalc = (value) => {
-    if (value === 0 && expr === '') return
-
-    switch (value) {
-      case '=':
-        validateResult(expr, setExpr, addToHistory)
-        break
-      case 'C':
-        setExpr(expr.substring(0, expr.length - 1))
-        break
-      case 'CE':
-        setExpr('')
-        break
-      default:
-        setExpr(expr + value)
-        break
-    }
+export const ControlPanel = ({ handleClick }) => {
+  const onButtonClick = (value) => () => {
+    handleClick(value)
   }
-
   return (
     <Container>
       {btnValues.map((row, i) => (
@@ -32,7 +17,7 @@ export const ControlPanel = ({ expr, setExpr }) => {
             <Button
               key={value}
               type={value}
-              onClick={() => updateCalc(value)}>
+              onClick={onButtonClick(value)}>
               {value}
             </Button>
           ))}
@@ -43,6 +28,5 @@ export const ControlPanel = ({ expr, setExpr }) => {
 }
 
 ControlPanel.propTypes = {
-  expr: PropTypes.string.isRequired,
-  setExpr: PropTypes.func.isRequired,
+  handleClick: PropTypes.func,
 }

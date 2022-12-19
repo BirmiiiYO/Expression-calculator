@@ -5,6 +5,7 @@ import open from '../../assets/forward-arrow.png'
 import { Display, ControlPanel } from '../../components'
 import { Container, Left, Right, Button } from './styles'
 import { History } from '../../components/History'
+import { ClassComp } from '../../components/ClassCalc'
 
 export class ClassCalc extends React.Component {
   constructor(props) {
@@ -22,13 +23,7 @@ export class ClassCalc extends React.Component {
     return (
       <Container>
         <Left>
-          zxc
-          {/* <Display currentValues={currentValues} />
-
-          <Keypad
-            currentValues={currentValues}
-            setCurrentValues={setCurrentValues}
-          /> */}
+          <ClassComp />
         </Left>
 
         <Button onClick={this.toggleHistory}>
