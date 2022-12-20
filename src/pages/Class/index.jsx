@@ -1,8 +1,8 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+
 import close from '../../assets/back-arrow.png'
 import open from '../../assets/forward-arrow.png'
-import { Display, ControlPanel } from '../../components'
+
 import { Container, Left, Right, Button } from './styles'
 import { History } from '../../components/History'
 import { ClassComp } from '../../components/ClassCalc'

@@ -1,3 +1,5 @@
+import { localStore } from './commands'
+
 export class Calculator {
   constructor() {
     this.current = 0
@@ -9,7 +11,10 @@ export class Calculator {
       command.value,
     )
     this.history.push(command)
-    localStorage.setItem('history', JSON.stringify(storage))
+    localStorage.setItem(
+      'history',
+      JSON.stringify(localStore),
+    )
   }
   undo() {
     var command = this.history.pop()

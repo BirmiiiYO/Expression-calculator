@@ -1,6 +1,8 @@
 import React from 'react'
-import { ThemeContext } from '../../ThemeContext'
+import { HistoryContext } from '../../App'
+import { ThemeContext } from '../../App'
 import { switchTheme } from '../../utilities/changeTheme'
+import { localStore } from '../../utilities/commands'
 
 import {
   Container,
@@ -11,6 +13,12 @@ import {
 
 export const Settings = () => {
   const { setTheme } = React.useContext(ThemeContext)
+  const { setHistory } = React.useContext(HistoryContext)
+
+  const clearHistory = () => {
+    localStorage.removeItem('history')
+    localStore.length = 0
+  }
   return (
     <Container>
       <Title>Settings:</Title>
@@ -24,7 +32,9 @@ export const Settings = () => {
         <option value="dark">Dark</option>
         <option value="color">Color</option>
       </MySelect>
-      <ClearButton>Clear history</ClearButton>
+      <ClearButton onClick={clearHistory}>
+        Clear history
+      </ClearButton>
     </Container>
   )
 }

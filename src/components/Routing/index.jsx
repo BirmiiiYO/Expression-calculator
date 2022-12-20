@@ -7,7 +7,7 @@ import { ClassCalc } from '../../pages/Class'
 export function Routing() {
   return (
     <Routes>
-      {/* <Route path="/fc" element={<FuncCalc />} /> */}
+      <Route path="/fc" element={<FuncCalc />} />
       <Route path="/cc" element={<ClassCalc />} />
       <Route path="/settings" element={<Settings />} />
       <Route

@@ -8,7 +8,6 @@ class Command {
 
 export const localStore =
   JSON.parse(localStorage.getItem('history')) || []
-
 function add(x, y) {
   localStore.push({
     firstValue: x,

@@ -16,6 +16,7 @@ import { deleteLastChar } from '../../utilities/deleteLastChar'
 import { Wrapper } from './styles'
 import { Display } from '../Display'
 import { ControlPanel } from '../ControlPanel'
+import { HistoryContext } from '../../App'
 
 export class ClassComp extends Component {
   constructor(props) {
@@ -25,7 +26,6 @@ export class ClassComp extends Component {
       operator: null,
     }
   }
-
   calculator = new Calculator()
 
   handleClick = (content) => {
@@ -78,7 +78,7 @@ export class ClassComp extends Component {
         })
         break
       }
-      case '+/-': {
+      case '-1': {
         this.calculator.setCurrent(
           parseFloat(firstOperand) * -1,
         )
@@ -119,6 +119,7 @@ export class ClassComp extends Component {
           operator: null,
           firstOperand: this.calculator.getValue(),
         })
+
         break
       }
 

@@ -3,11 +3,7 @@ import PropTypes from 'prop-types'
 import { DisplayText } from './styles'
 
 export const Display = ({ firstValue, memory }) => {
-  return (
-    <DisplayText id="display">
-      {firstValue || memory}
-    </DisplayText>
-  )
+  return <DisplayText>{firstValue || memory}</DisplayText>
 }
 
 Display.propTypes = {
