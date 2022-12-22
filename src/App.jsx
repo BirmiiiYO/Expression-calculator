@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable import/no-cycle */
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 

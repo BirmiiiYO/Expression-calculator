@@ -4,7 +4,7 @@ import React from 'react'
 import btnValues from '../../constants/keyboard'
 import { Button, Container, Row } from './styles'
 
-export default function Keypad({ handleClick }) {
+export default function ControlPanel({ handleClick }) {
   const onButtonClick = (value) => () => {
     handleClick(value)
   }
@@ -25,6 +25,6 @@ export default function Keypad({ handleClick }) {
   )
 }
 
-Keypad.propTypes = {
+ControlPanel.propTypes = {
   handleClick: PropTypes.func.isRequired,
 }

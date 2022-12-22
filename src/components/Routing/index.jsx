@@ -9,7 +9,7 @@ import Settings from '../../pages/Settings'
 export default function Routing() {
   return (
     <Routes>
-      <Route path="/fc" element={<FuncCalc />} />
+      {/* <Route path="/fc" element={<FuncCalc />} /> */}
       <Route path="/cc" element={<ClassCalc />} />
       <Route path="/settings" element={<Settings />} />
       <Route

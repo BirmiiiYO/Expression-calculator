@@ -2,7 +2,7 @@ import React from 'react'
 
 import close from '../../assets/back-arrow.png'
 import open from '../../assets/forward-arrow.png'
-import ClassComp from '../../components/ClassCalc'
+import { CalculatorWrapper } from '../../components/ClassCalc'
 import History from '../../components/History'
 import { Button, Container, Left, Right } from './styles'
 
@@ -26,7 +26,7 @@ export default class ClassCalc extends React.Component {
     return (
       <Container>
         <Left>
-          <ClassComp />
+          <CalculatorWrapper />
         </Left>
 
         <Button onClick={this.toggleHistory}>

@@ -1,13 +1,26 @@
 import styled from 'styled-components'
 
-const DisplayText = styled.div`
-  border-bottom: 5px solid;
-  font-size: 14px;
-  font-weight: 600;
-  height: 30px;
+export const DisplayStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 300px;
+  height: 300px;
+  background-color: ${({ theme }) => theme.background};
+  border-radius: 5px;
   padding: 5px;
-  text-align: right;
-  width: 100%;
+  overflow: auto;
+  
+  }
 `
 
-export default DisplayText
+export const DisplayExpression = styled.div`
+  color: ${({ theme }) => theme.color};
+  font-size: 16px;
+  text-align: right;
+`
+export const DisplayRes = styled.div`
+  text-align: right;
+  font-size: 16;
+  color: black;
+`

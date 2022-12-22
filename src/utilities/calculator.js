@@ -1,30 +1,20 @@
-import { localStore } from './commands'
-
-export default class Calculator {
+// eslint-disable-next-line max-classes-per-file
+class Calculator {
   constructor() {
-    this.current = 0
+    this.value = 0
     this.history = []
   }
 
-  execute(command) {
-    this.current = command.execute(
-      this.current,
-      command.value,
-    )
+  executeCommand(command) {
     this.history.push(command)
-    localStorage.setItem(
-      'history',
-      JSON.stringify(localStore),
-    )
+    this.value = command.execute(this.value)
   }
 
   undo() {
     const command = this.history.pop()
-    this.current = command.undo(this.current, command.value)
-  }
-
-  setCurrent(value) {
-    this.current = Number(value)
+    if (command) {
+      this.value = command.undo(this.value)
+    }
   }
 
   getValue() {
@@ -35,4 +25,107 @@ export default class Calculator {
     this.current = 0
     this.history = []
   }
+
+  setValue(value) {
+    this.value = value
+  }
+}
+
+class AddCommand {
+  constructor(valueToAdd) {
+    this.valueToAdd = valueToAdd
+  }
+
+  execute(currentValue) {
+    return currentValue + this.valueToAdd
+  }
+
+  undo(currentValue) {
+    return currentValue - this.valueToAdd
+  }
+}
+
+class SubtractCommand {
+  constructor(valueToSubtract) {
+    this.valueToSubtract = valueToSubtract
+  }
+
+  execute(currentValue) {
+    return currentValue - this.valueToSubtract
+  }
+
+  undo(currentValue) {
+    return currentValue + this.valueToSubtract
+  }
+}
+
+class MultiplyCommand {
+  constructor(valueToMultiply) {
+    this.valueToMultiply = valueToMultiply
+  }
+
+  execute(currentValue) {
+    return this.valueToMultiply * currentValue
+  }
+
+  undo(currentValue) {
+    return this.valueToMultiply / currentValue
+  }
+}
+
+class DivideCommand {
+  constructor(valueToDivide) {
+    this.valueToDivide = valueToDivide
+  }
+
+  execute(currentValue) {
+    const calcValue =
+      Math.round(
+        (currentValue / this.valueToDivide) * 1000,
+      ) / 1000
+    return calcValue
+  }
+
+  undo(currentValue) {
+    return this.valueToDivide * currentValue
+  }
+}
+class ClearCommand {
+  tempValue = 0
+  execute(currentValue) {
+    this.tempValue = currentValue
+    return 0
+  }
+  undo() {
+    return this.tempValue
+  }
+}
+
+class RemainderCommand {
+  constructor(valueToRemainder) {
+    this.valueToRemainder = valueToRemainder
+    this.temp = 0
+  }
+
+  execute(currentValue) {
+    this.temp = Math.floor(
+      currentValue / this.valueToRemainder,
+    )
+    return currentValue % this.valueToRemainder
+  }
+
+  undo(currentValue) {
+    const tempVal = this.temp * this.valueToRemainder
+    return currentValue + tempVal
+  }
+}
+
+export {
+  ClearCommand,
+  Calculator,
+  AddCommand,
+  SubtractCommand,
+  MultiplyCommand,
+  DivideCommand,
+  RemainderCommand,
 }

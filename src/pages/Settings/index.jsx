@@ -2,7 +2,7 @@ import React from 'react'
 // eslint-disable-next-line import/no-cycle
 import { ThemeContext } from '../../App'
 import { switchTheme } from '../../utilities/changeTheme'
-import { localStore } from '../../utilities/commands'
+
 import {
   ClearButton,
   Container,
@@ -15,7 +15,6 @@ export default function Settings() {
 
   const clearHistory = () => {
     localStorage.removeItem('history')
-    localStore.length = 0
   }
   return (
     <Container>
