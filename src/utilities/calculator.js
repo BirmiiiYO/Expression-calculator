@@ -92,10 +92,12 @@ class DivideCommand {
 }
 class ClearCommand {
   tempValue = 0
+
   execute(currentValue) {
     this.tempValue = currentValue
     return 0
   }
+
   undo() {
     return this.tempValue
   }

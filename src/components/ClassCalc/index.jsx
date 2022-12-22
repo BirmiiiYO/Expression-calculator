@@ -28,7 +28,6 @@ import {
   SubtractCommand,
   MultiplyCommand,
   DivideCommand,
-  RemainderCommand,
   ClearCommand,
 } from '../../utilities/calculator'
 
@@ -294,17 +293,6 @@ export class CalculatorWrapper extends React.Component {
       case MainOperators.MUL:
         this.calculator.executeCommand(
           new MultiplyCommand(lastNumber),
-        )
-        this.setState({
-          result: numberIsFloat(this.calculator.value)
-            ? this.calculator.value.toString()
-            : this.calculator.value.toFixed(3),
-        })
-        break
-
-      case MainOperators.REM:
-        this.calculator.executeCommand(
-          new RemainderCommand(lastNumber),
         )
         this.setState({
           result: numberIsFloat(this.calculator.value)
