@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react'
 
 import Calculator from '../../utilities/calculator'
@@ -29,10 +30,9 @@ export default class ClassComp extends Component {
 
     switch (content) {
       case 'C': {
-        this.setState((prevState) => ({
-          firstOperand: deleteLastChar(
-            prevState.firstOperand,
-          ),
+        // eslint-disable-next-line no-shadow
+        this.setState(({ firstOperand }) => ({
+          firstOperand: deleteLastChar(firstOperand),
         }))
         break
       }
@@ -142,13 +142,13 @@ export default class ClassComp extends Component {
   }
 
   render() {
-    const { firstOperand } = this.state
+    const { firstOperand, operator } = this.state
     const memory = this.calculator.getValue()
-
     return (
       <Wrapper>
         <Display
           firstOperand={firstOperand}
+          operator={operator}
           memory={memory}
         />
         <ControlPanel handleClick={this.handleClick} />

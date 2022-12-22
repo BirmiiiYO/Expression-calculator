@@ -3,25 +3,27 @@ import React from 'react'
 
 import DisplayText from './styles'
 
-export default function Display({ firstValue, memory }) {
+export default function Display({
+  firstValue,
+  operator,
+  memory,
+}) {
   return (
     <DisplayText>
-      <h1>{memory}</h1>
-      <h2>{firstValue}</h2>
+      <span>{firstValue}</span>
+      <span>{operator}</span>
+      <span>{memory}</span>
     </DisplayText>
   )
 }
 
 Display.propTypes = {
-  firstValue: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]),
-  memory: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-  ]).isRequired,
+  firstValue: PropTypes.string,
+  operator: PropTypes.string,
+  memory: PropTypes.string,
 }
 Display.defaultProps = {
   firstValue: '',
+  operator: '',
+  memory: 'zxc',
 }

@@ -53,28 +53,28 @@ function rem(x, y) {
 
 export class AddCommand extends Command {
   constructor(value) {
-    super(add, sub, Number(value))
+    super(add, Number(value))
   }
 }
 export class SubCommand extends Command {
   constructor(value) {
-    super(sub, add, Number(value))
+    super(sub, Number(value))
   }
 }
 export class MulCommand extends Command {
   constructor(value) {
-    super(mul, div, Number(value))
+    super(mul, Number(value))
   }
 }
 
 export class DivCommand extends Command {
   constructor(value) {
-    super(div, mul, Number(value))
+    super(div, Number(value))
   }
 }
 
 export class RemCommand extends Command {
   constructor(value) {
-    super(rem, mul, Number(value))
+    super(rem, Number(value))
   }
 }
