@@ -1,22 +1,20 @@
-import React, { memo } from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 
-import { btnValues } from '../../constants/keyboard'
+import btnValues from '../../constants/keyboard'
+import { Button, Container, Row } from './styles'
 
-import { Container, Button, Row } from './styles'
-
-export function ControlPanel({ handleClick }) {
+export default function Keypad({ handleClick }) {
   const onButtonClick = (value) => () => {
     handleClick(value)
   }
   return (
     <Container>
-      {btnValues.map((row, i) => (
-        <Row key={i}>
-          {row.map((value) => (
+      {btnValues.map((row) => (
+        <Row key={row.id}>
+          {row.buttons.map((value) => (
             <Button
               key={value}
-              type={value}
               onClick={onButtonClick(value)}>
               {value}
             </Button>
@@ -27,6 +25,6 @@ export function ControlPanel({ handleClick }) {
   )
 }
 
-ControlPanel.propTypes = {
-  handleClick: PropTypes.func,
+Keypad.propTypes = {
+  handleClick: PropTypes.func.isRequired,
 }

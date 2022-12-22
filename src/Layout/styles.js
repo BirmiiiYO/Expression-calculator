@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
-export const LayoutWrapper = styled.div`
+const LayoutWrapper = styled.div`
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 `
+
+export default LayoutWrapper

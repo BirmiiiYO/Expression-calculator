@@ -1,6 +1,6 @@
 import { localStore } from './commands'
 
-export class Calculator {
+export default class Calculator {
   constructor() {
     this.current = 0
     this.history = []

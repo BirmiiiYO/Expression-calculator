@@ -3,11 +3,11 @@ import React from 'react'
 import {
   CustomLink,
   HeaderContainer,
-  Title,
   Links,
+  Title,
 } from './styles'
 
-export function Header() {
+export default function Header() {
   return (
     <HeaderContainer>
       <Title>Calculator App</Title>

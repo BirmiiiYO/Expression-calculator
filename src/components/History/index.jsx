@@ -1,12 +1,8 @@
 import React from 'react'
-import { PropTypes } from 'prop-types'
 
-import { Container, Title, List, Item } from './styles'
-import { HistoryContext } from '../../App'
+import { Container, Item, List, Title } from './styles'
 
-export function History() {
-  const { history } = React.useContext(HistoryContext)
-  console.log(history)
+export default function History() {
   return (
     <Container>
       <Title>History:</Title>
@@ -15,15 +11,13 @@ export function History() {
           ? 'history is empty'
           : history
               .reverse()
-              .map(
-                ({ firstValue, operator, memory }, i) => (
-                  <Item key={i}>
-                    {firstValue}
-                    {` ${operator} `}
-                    {memory}
-                  </Item>
-                ),
-              )}
+              .map(({ firstValue, operator, memory }) => (
+                <Item>
+                  {firstValue}
+                  {` ${operator} `}
+                  {memory}
+                </Item>
+              ))}
       </List>
     </Container>
   )

@@ -1,9 +1,9 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 
-import { ErrorTitle } from './styles'
+import ErrorTitle from './styles'
 
-export class ErrorBoundary extends React.Component {
+export default class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props)
     this.state = { hasError: false }
@@ -30,5 +30,5 @@ export class ErrorBoundary extends React.Component {
 }
 
 ErrorBoundary.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node.isRequired,
 }

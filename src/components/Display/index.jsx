@@ -1,9 +1,15 @@
-import React from 'react'
 import PropTypes from 'prop-types'
-import { DisplayText } from './styles'
+import React from 'react'
 
-export function Display({ firstValue, memory }) {
-  return <DisplayText>{firstValue || memory}</DisplayText>
+import DisplayText from './styles'
+
+export default function Display({ firstValue, memory }) {
+  return (
+    <DisplayText>
+      <h1>{memory}</h1>
+      <h2>{firstValue}</h2>
+    </DisplayText>
+  )
 }
 
 Display.propTypes = {
@@ -14,5 +20,8 @@ Display.propTypes = {
   memory: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-  ]),
+  ]).isRequired,
+}
+Display.defaultProps = {
+  firstValue: '',
 }

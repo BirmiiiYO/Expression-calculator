@@ -1,15 +1,12 @@
-import React, { useState } from 'react'
-import { PropTypes } from 'prop-types'
-
+import React from 'react'
 
 import close from '../../assets/back-arrow.png'
 import open from '../../assets/forward-arrow.png'
+import FuncComp from '../../components/FuncCalc'
+import History from '../../components/History'
+import { Button, Container, Left, Right } from './styles'
 
-import { Container, Button, Left, Right } from './styles'
-import { FuncComp } from '../../components/FuncCalc'
-import { History } from '../../components/History'
-
-export function FuncCalc() {
+export default function FuncCalc() {
   const [isOpen, setIsOpen] = React.useState(false)
   const toggleHistory = () => {
     setIsOpen((prevState) => !prevState.isOpen)
@@ -25,6 +22,7 @@ export function FuncCalc() {
           src={isOpen ? close : open}
           width={30}
           height={30}
+          alt="arrow"
         />
       </Button>
 

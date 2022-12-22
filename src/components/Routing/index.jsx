@@ -1,10 +1,12 @@
 import React from 'react'
-import { Route, Routes, Navigate } from 'react-router-dom'
-import { Settings } from '../../pages/Settings'
-import { FuncCalc } from '../../pages/Func'
-import { ClassCalc } from '../../pages/Class'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
-export function Routing() {
+import ClassCalc from '../../pages/Class'
+import FuncCalc from '../../pages/Func'
+// eslint-disable-next-line import/no-cycle
+import Settings from '../../pages/Settings'
+
+export default function Routing() {
   return (
     <Routes>
       <Route path="/fc" element={<FuncCalc />} />

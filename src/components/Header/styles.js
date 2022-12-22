@@ -1,23 +1,23 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-export const HeaderContainer = styled.div`
-  width: 100%;
-  height: 80px;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
+const HeaderContainer = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.header};
   color: ${({ theme }) => theme.text};
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  padding: 0 20px;
+  width: 100%;
 `
 
-export const Title = styled.h1`
+const Title = styled.h1`
   font-size: 30px;
   font-style: italic;
 `
 
-export const CustomLink = styled(Link)`
+const CustomLink = styled(Link)`
   color: ${({ theme }) => theme.text};
   font-size: 20px;
   margin: 10px;
@@ -26,9 +26,10 @@ export const CustomLink = styled(Link)`
   }
 `
 
-export const Links = styled.div`
-  width: 350px;
+const Links = styled.div`
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  width: 350px;
 `
+export { CustomLink, HeaderContainer, Link, Title, Links }

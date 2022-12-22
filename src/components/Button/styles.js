@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const ButtonContainer = styled.button`
+const ButtonContainer = styled.button`
   background: ${({ theme }) => theme.background};
   color: ${({ theme }) => theme.text};
   display: block;
@@ -9,9 +9,10 @@ export const ButtonContainer = styled.button`
   justify-self: center;
   transition: 0.3s all ease;
   width: 50px;
-
   &:hover {
     opacity: 0.1;
     transform: scale(1.1});
   }
 `
+
+export default ButtonContainer

@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   flex: 1 1 80%;
 `
+
+export default Wrapper

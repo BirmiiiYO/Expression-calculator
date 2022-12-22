@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 
-import { Calculator } from '../../utilities/calculator'
-
+import Calculator from '../../utilities/calculator'
 import {
   AddCommand,
   DivCommand,
@@ -10,31 +8,31 @@ import {
   RemCommand,
   SubCommand,
 } from '../../utilities/commands'
+import deleteLastChar from '../../utilities/deleteLastChar'
+import ControlPanel from '../ControlPanel'
+import Display from '../Display'
+import Wrapper from './styles'
 
-import { deleteLastChar } from '../../utilities/deleteLastChar'
-
-import { Wrapper } from './styles'
-import { Display } from '../Display'
-import { ControlPanel } from '../ControlPanel'
-import { HistoryContext } from '../../App'
-
-export class ClassComp extends Component {
+export default class ClassComp extends Component {
   constructor(props) {
     super(props)
     this.state = {
       firstOperand: '0',
       operator: null,
     }
+    this.calculator = new Calculator()
+    this.handleClick = this.handleClick.bind(this)
   }
-  calculator = new Calculator()
 
-  handleClick = (content) => {
-    const { firstOperand } = this.state
+  handleClick(content) {
+    const { firstOperand, operator } = this.state
 
     switch (content) {
       case 'C': {
-        this.setState(({ firstOperand }) => ({
-          firstOperand: deleteLastChar(firstOperand),
+        this.setState((prevState) => ({
+          firstOperand: deleteLastChar(
+            prevState.firstOperand,
+          ),
         }))
         break
       }
@@ -90,8 +88,7 @@ export class ClassComp extends Component {
         break
       }
       case '=': {
-        const { operator, firstOperand } = this.state
-        if (!this.state.operator) break
+        if (!operator) break
 
         if (operator === '+') {
           this.calculator.execute(
@@ -124,22 +121,20 @@ export class ClassComp extends Component {
 
       case '.': {
         if (firstOperand.toString().includes('.')) return
-        this.setState(({ firstOperand }) => ({
-          firstOperand: firstOperand + '.',
+        this.setState((prevState) => ({
+          firstOperand: `${prevState.firstOperand}.`,
         }))
 
         break
       }
       default: {
-        if (!this.state.operator) {
-          this.calculator.setCurrent(
-            this.state.firstOperand + content,
-          )
+        if (!operator) {
+          this.calculator.setCurrent(firstOperand + content)
         }
 
-        this.setState(({ firstOperand }) => ({
+        this.setState((prevState) => ({
           firstOperand: parseFloat(
-            firstOperand + content,
+            prevState.firstOperand + content,
           ).toString(),
         }))
       }

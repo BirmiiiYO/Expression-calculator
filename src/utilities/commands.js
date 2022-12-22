@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 class Command {
   constructor(execute, undo, value) {
     this.execute = execute
@@ -14,7 +15,7 @@ function add(x, y) {
     memory: y,
     operator: '+',
   })
-  return isNaN(x + y) ? 0 : x + y
+  return Number.isNaN(x + y) ? 0 : x + y
 }
 function sub(x, y) {
   localStore.push({
@@ -22,7 +23,7 @@ function sub(x, y) {
     memory: y,
     operator: '-',
   })
-  return isNaN(x - y) ? 0 : x - y
+  return Number.isNaN(x - y) ? 0 : x - y
 }
 function mul(x, y) {
   localStore.push({
@@ -30,7 +31,7 @@ function mul(x, y) {
     memory: y,
     operator: '*',
   })
-  return isNaN(x * y) ? 0 : x * y
+  return Number.isNaN(x * y) ? 0 : x * y
 }
 function div(x, y) {
   localStore.push({
@@ -38,7 +39,7 @@ function div(x, y) {
     memory: y,
     operator: '/',
   })
-  return isNaN(x / y) ? 0 : x / y
+  return Number.isNaN(x / y) ? 0 : x / y
 }
 
 function rem(x, y) {
@@ -47,7 +48,7 @@ function rem(x, y) {
     memory: y,
     operator: '%',
   })
-  return isNaN(x % y) ? 0 : x % y
+  return Number.isNaN(x % y) ? 0 : x % y
 }
 
 export class AddCommand extends Command {

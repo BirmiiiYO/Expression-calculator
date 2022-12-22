@@ -2,24 +2,27 @@ import React from 'react'
 
 import close from '../../assets/back-arrow.png'
 import open from '../../assets/forward-arrow.png'
+import ClassComp from '../../components/ClassCalc'
+import History from '../../components/History'
+import { Button, Container, Left, Right } from './styles'
 
-import { Container, Left, Right, Button } from './styles'
-import { History } from '../../components/History'
-import { ClassComp } from '../../components/ClassCalc'
-
-export class ClassCalc extends React.Component {
+export default class ClassCalc extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       isOpen: false,
     }
+    this.toggleHistory = this.toggleHistory.bind(this)
   }
-  toggleHistory = () => {
+
+  toggleHistory() {
     this.setState((prevState) => ({
       isOpen: !prevState.isOpen,
     }))
   }
+
   render() {
+    const { isOpen } = this.state
     return (
       <Container>
         <Left>
@@ -28,13 +31,14 @@ export class ClassCalc extends React.Component {
 
         <Button onClick={this.toggleHistory}>
           <img
-            src={this.state.isOpen ? close : open}
+            src={isOpen ? close : open}
             width={30}
             height={30}
+            alt="arrow"
           />
         </Button>
 
-        {this.state.isOpen ? (
+        {isOpen ? (
           <Right>
             <History />
           </Right>

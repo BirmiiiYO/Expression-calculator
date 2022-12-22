@@ -1,22 +1,22 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  display: flex;
+const Container = styled.div`
   align-items: center;
-  justify-content: center;
+  display: flex;
   flex-direction: column;
+  justify-content: center;
   margin-top: 20px;
 `
-export const Button = styled.button`
-  width: 70px;
-  height: 70px;
-  margin: 10px;
+const Button = styled.button`
+  background-color: ${({ theme }) => theme.text};
+  border: none;
   border-radius: 10px;
+  color: ${({ theme }) => theme.header};
   cursor: pointer;
   font-weight: 1000;
-  background-color: ${({ theme }) => theme.text};
-  color: ${({ theme }) => theme.header};
-  border: none;
+  height: 70px;
+  margin: 10px;
+  width: 70px;
   &:hover {
     opacity: 0.8;
   }
@@ -26,7 +26,9 @@ export const Button = styled.button`
     margin: 7px;
   }
 `
-export const Row = styled.div`
+const Row = styled.div`
   display: flex;
   justify-content: space-between;
 `
+
+export { Button, Container, Row }

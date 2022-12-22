@@ -1,19 +1,17 @@
 import React from 'react'
-import { HistoryContext , ThemeContext } from '../../App'
-
+// eslint-disable-next-line import/no-cycle
+import { ThemeContext } from '../../App'
 import { switchTheme } from '../../utilities/changeTheme'
 import { localStore } from '../../utilities/commands'
-
 import {
-  Container,
-  Title,
-  MySelect,
   ClearButton,
+  Container,
+  MySelect,
+  Title,
 } from './styles'
 
-export function Settings() {
+export default function Settings() {
   const { setTheme } = React.useContext(ThemeContext)
-  const { setHistory } = React.useContext(HistoryContext)
 
   const clearHistory = () => {
     localStorage.removeItem('history')

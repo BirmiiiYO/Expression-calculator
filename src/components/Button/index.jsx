@@ -1,28 +1,23 @@
-import React from 'react'
 import PropTypes from 'prop-types'
+import React from 'react'
 
-import { ButtonContainer } from './styles'
+import ButtonContainer from './styles'
 
-export function Button({ value, handleClick, type }) {
-  const onButtonClick = (value) => () => {
+export default function Button({ value, handleClick }) {
+  const onButtonClick = () => () => {
     handleClick(value)
   }
-
   return (
     <ButtonContainer
-      className={type || ''}
       onClick={onButtonClick(value)}
       value={value}
-      key={value}
-      type={type}
-      data-name={value === '.' ? 'coma' : null}>
+      key={value}>
       {value}
     </ButtonContainer>
   )
 }
 
 Button.propTypes = {
-  value: PropTypes.string,
-  handleClick: PropTypes.func,
-  type: PropTypes.string,
+  value: PropTypes.string.isRequired,
+  handleClick: PropTypes.func.isRequired,
 }

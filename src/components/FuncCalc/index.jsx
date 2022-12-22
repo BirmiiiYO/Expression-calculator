@@ -1,8 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-import { Calculator } from '../../utilities/calculator'
-
+import Calculator from '../../utilities/calculator'
 import {
   AddCommand,
   DivCommand,
@@ -10,21 +8,18 @@ import {
   RemCommand,
   SubCommand,
 } from '../../utilities/commands'
+import deleteLastChar from '../../utilities/deleteLastChar'
+import ControlPanel from '../ControlPanel'
+import Display from '../Display'
+import Wrapper from './styles'
 
-import { deleteLastChar } from '../../utilities/deleteLastChar'
-
-import { Wrapper } from './styles'
-import { Display } from '../Display'
-import { ControlPanel } from '../ControlPanel'
-
-export function FuncComp() {
+export default function FuncComp() {
   const [firstOperand, setFirstOperand] =
     React.useState('0')
   const [operator, setOperator] = React.useState(null)
   const calculator = new Calculator()
 
   const handleClick = (value) => {
-    console.log(value)
     switch (value) {
       case 'C': {
         setFirstOperand((prev) => deleteLastChar(prev))
@@ -94,7 +89,7 @@ export function FuncComp() {
 
       case '.': {
         if (firstOperand.toString().includes('.')) return
-        setFirstOperand((prev) => `${prev  }.`)
+        setFirstOperand((prev) => `${prev}.`)
 
         break
       }
@@ -108,7 +103,7 @@ export function FuncComp() {
   }
 
   const memory = calculator.getValue()
-  console.log(memory)
+
   return (
     <Wrapper>
       <Display
