@@ -1,6 +1,6 @@
 import React from 'react'
-import { HistoryContext } from '../../App'
-import { ThemeContext } from '../../App'
+import { HistoryContext , ThemeContext } from '../../App'
+
 import { switchTheme } from '../../utilities/changeTheme'
 import { localStore } from '../../utilities/commands'
 
@@ -11,7 +11,7 @@ import {
   ClearButton,
 } from './styles'
 
-export const Settings = () => {
+export function Settings() {
   const { setTheme } = React.useContext(ThemeContext)
   const { setHistory } = React.useContext(HistoryContext)
 

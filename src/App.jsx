@@ -6,9 +6,10 @@ import { ErrorBoundary } from './components/ErrorBoundary'
 import { Header, Routing } from './components'
 import Layout from './Layout'
 import { changeThemeForProvider } from './utilities/changeTheme'
+
 export const ThemeContext = React.createContext('')
 export const HistoryContext = React.createContext([])
-const App = () => {
+function App() {
   const initialTheme = changeThemeForProvider(
     localStorage.getItem('theme'),
   )

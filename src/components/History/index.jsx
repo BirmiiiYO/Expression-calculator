@@ -1,30 +1,30 @@
 import React from 'react'
 import { PropTypes } from 'prop-types'
 
-import { Container, Title, Ul } from './styles'
+import { Container, Title, List, Item } from './styles'
 import { HistoryContext } from '../../App'
 
-export const History = () => {
+export function History() {
   const { history } = React.useContext(HistoryContext)
   console.log(history)
   return (
     <Container>
       <Title>History:</Title>
-      <Ul type="list">
+      <List type="list">
         {history.length === 0
           ? 'history is empty'
           : history
               .reverse()
               .map(
                 ({ firstValue, operator, memory }, i) => (
-                  <li key={i}>
+                  <Item key={i}>
                     {firstValue}
-                    {operator}
+                    {` ${operator} `}
                     {memory}
-                  </li>
+                  </Item>
                 ),
               )}
-      </Ul>
+      </List>
     </Container>
   )
 }

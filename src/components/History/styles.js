@@ -5,7 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
 `
-export const Ul = styled.ul.attrs(() => ({
+export const List = styled.ul.attrs(() => ({
   type: 'list',
 }))`
   display: flex;
@@ -18,6 +18,11 @@ export const Title = styled.h1`
   color: ${({ theme }) => theme.text};
   margin-bottom: 10px;
 `
+
+export const Item = styled.li`
+  list-style-type: none;
+`
+
 export const Button = styled.button`
   background: none;
   color: ${({ theme }) => theme.text};

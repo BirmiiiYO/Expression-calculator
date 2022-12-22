@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { ButtonContainer } from './styles'
 
-export const Button = ({ value, handleClick, type }) => {
+export function Button({ value, handleClick, type }) {
   const onButtonClick = (value) => () => {
     handleClick(value)
   }

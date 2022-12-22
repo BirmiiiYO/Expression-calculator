@@ -17,11 +17,11 @@ import { Wrapper } from './styles'
 import { Display } from '../Display'
 import { ControlPanel } from '../ControlPanel'
 
-export const FuncComp = () => {
+export function FuncComp() {
   const [firstOperand, setFirstOperand] =
     React.useState('0')
   const [operator, setOperator] = React.useState(null)
-  let calculator = new Calculator()
+  const calculator = new Calculator()
 
   const handleClick = (value) => {
     console.log(value)
@@ -94,7 +94,7 @@ export const FuncComp = () => {
 
       case '.': {
         if (firstOperand.toString().includes('.')) return
-        setFirstOperand((prev) => prev + '.')
+        setFirstOperand((prev) => `${prev  }.`)
 
         break
       }

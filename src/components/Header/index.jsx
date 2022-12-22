@@ -7,7 +7,7 @@ import {
   Links,
 } from './styles'
 
-export const Header = () => {
+export function Header() {
   return (
     <HeaderContainer>
       <Title>Calculator App</Title>

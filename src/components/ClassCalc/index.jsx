@@ -114,7 +114,6 @@ export class ClassComp extends Component {
             new RemCommand(firstOperand),
           )
         }
-
         this.setState({
           operator: null,
           firstOperand: this.calculator.getValue(),

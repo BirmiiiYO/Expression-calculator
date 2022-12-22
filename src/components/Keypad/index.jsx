@@ -5,18 +5,16 @@ import { numberButtons } from '../../constants/numbers'
 
 import { Grid } from './styles'
 
-export const Keypad = ({ handleClick }) => {
+export function Keypad({ handleClick }) {
   return (
     <Grid>
-      {numberButtons.map(({ id, context }) => {
-        return (
+      {numberButtons.map(({ id, context }) => (
           <Button
             key={id}
             value={context}
             onClick={handleClick}
           />
-        )
-      })}
+        ))}
     </Grid>
   )
 }

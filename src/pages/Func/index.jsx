@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { PropTypes } from 'prop-types'
-import React from 'react'
+
 
 import close from '../../assets/back-arrow.png'
 import open from '../../assets/forward-arrow.png'
@@ -9,7 +9,7 @@ import { Container, Button, Left, Right } from './styles'
 import { FuncComp } from '../../components/FuncCalc'
 import { History } from '../../components/History'
 
-export const FuncCalc = () => {
+export function FuncCalc() {
   const [isOpen, setIsOpen] = React.useState(false)
   const toggleHistory = () => {
     setIsOpen((prevState) => !prevState.isOpen)

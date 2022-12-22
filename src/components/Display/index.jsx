@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { DisplayText } from './styles'
 
-export const Display = ({ firstValue, memory }) => {
+export function Display({ firstValue, memory }) {
   return <DisplayText>{firstValue || memory}</DisplayText>
 }
 
