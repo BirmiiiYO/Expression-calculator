@@ -31,7 +31,7 @@ import {
   ClearCommand,
 } from '../../utilities/calculator'
 
-export class CalculatorWrapper extends React.Component {
+export class ClassCalculator extends React.Component {
   constructor(props) {
     super(props)
     this.calculator = new Calculator()
@@ -337,18 +337,16 @@ export class CalculatorWrapper extends React.Component {
   render() {
     const { expression, isError, result } = this.state
     return (
-      <>
-        <Wrapper>
-          <Display
-            error={isError}
-            value={expression}
-            result={result}
-          />
-          <ControlPanel
-            handleClick={this.handleExpressionValue}
-          />
-        </Wrapper>
-      </>
+      <Wrapper>
+        <Display
+          error={isError}
+          value={expression}
+          result={result}
+        />
+        <ControlPanel
+          handleClick={this.handleExpressionValue}
+        />
+      </Wrapper>
     )
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 // eslint-disable-next-line import/no-cycle
-import { ThemeContext } from '../../App'
+import { HistoryContext, ThemeContext } from '../../App'
 import { switchTheme } from '../../utilities/changeTheme'
 
 import {
@@ -12,8 +12,9 @@ import {
 
 export default function Settings() {
   const { setTheme } = React.useContext(ThemeContext)
-
+  const { setHistory } = React.useContext(HistoryContext)
   const clearHistory = () => {
+    setHistory([])
     localStorage.removeItem('history')
   }
   return (

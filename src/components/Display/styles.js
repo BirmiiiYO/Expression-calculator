@@ -1,26 +1,20 @@
 import styled from 'styled-components'
 
-export const DisplayStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 300px;
-  height: 300px;
-  background-color: ${({ theme }) => theme.background};
-  border-radius: 5px;
+const DisplayBlock = styled.div`
+  border-bottom: 5px solid;
   padding: 5px;
-  overflow: auto;
-  
-  }
+  text-align: right;
+  width: 100%;
+`
+const Expression = styled.div`
+  font-size: 20px;
+  font-weight: 500;
+  text-align: right;
+`
+const Result = styled.div`
+  font-size: 14px;
+  font-weight: 400;
+  text-align: right;
 `
 
-export const DisplayExpression = styled.div`
-  color: ${({ theme }) => theme.color};
-  font-size: 16px;
-  text-align: right;
-`
-export const DisplayRes = styled.div`
-  text-align: right;
-  font-size: 16;
-  color: black;
-`
+export { DisplayBlock, Expression, Result }

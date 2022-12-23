@@ -12,11 +12,15 @@ import GlobalStyle from './styles/global'
 import { changeThemeForProvider } from './utilities/changeTheme'
 
 export const ThemeContext = React.createContext('')
-
+export const HistoryContext = React.createContext('')
 function App() {
   const initialTheme = changeThemeForProvider(
     localStorage.getItem('theme'),
   )
+  const initialHistory =
+    JSON.parse(localStorage.getItem('history')) || []
+  const [history, setHistory] =
+    React.useState(initialHistory)
   const [theme, setTheme] = React.useState(initialTheme)
 
   return (
@@ -26,7 +30,10 @@ function App() {
         <Header />
         <ErrorBoundary>
           <Layout>
-            <Routing />
+            <HistoryContext.Provider
+              value={{ history, setHistory }}>
+              <Routing />
+            </HistoryContext.Provider>
           </Layout>
         </ErrorBoundary>
       </ThemeProvider>

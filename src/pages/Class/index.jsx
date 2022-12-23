@@ -1,9 +1,10 @@
+/* eslint-disable import/no-cycle */
 import React from 'react'
 
 import close from '../../assets/back-arrow.png'
 import open from '../../assets/forward-arrow.png'
-import { CalculatorWrapper } from '../../components/ClassCalc'
 import History from '../../components/History'
+import { ClassCalculator } from '../../components/ClassCalc'
 import { Button, Container, Left, Right } from './styles'
 
 export default class ClassCalc extends React.Component {
@@ -26,7 +27,7 @@ export default class ClassCalc extends React.Component {
     return (
       <Container>
         <Left>
-          <CalculatorWrapper />
+          <ClassCalculator />
         </Left>
 
         <Button onClick={this.toggleHistory}>

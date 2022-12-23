@@ -1,33 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {
-  DisplayStyled,
-  DisplayExpression,
-  DisplayRes,
-} from './styles'
+import { DisplayBlock, Expression, Result } from './styles'
 
 export default class Display extends React.PureComponent {
   render() {
     const { value, error, result } = this.props
     return (
-      <DisplayStyled>
-        <DisplayExpression
-          data-cy="expression-result"
-          error={error}
-          result={result}>
-          {value}
-        </DisplayExpression>
-        <DisplayRes data-cy="result" result={result}>
-          {result}
-        </DisplayRes>
-      </DisplayStyled>
+      <DisplayBlock>
+        <Result>{error || result}</Result>
+        <Expression>{value}</Expression>
+      </DisplayBlock>
     )
   }
 }
 Display.propTypes = {
   result: PropTypes.string,
   value: PropTypes.string,
-  error: PropTypes.string,
+  error: PropTypes.bool,
 }
 Display.defaultProps = {
   result: '',
