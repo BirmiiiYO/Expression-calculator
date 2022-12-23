@@ -3,8 +3,10 @@ import React from 'react'
 
 import close from '../../assets/back-arrow.png'
 import open from '../../assets/forward-arrow.png'
+
 import History from '../../components/History'
-import { ClassCalculator } from '../../components/ClassCalc'
+import ClassCalculator from '../../components/ClassCalc'
+
 import { Button, Container, Left, Right } from './styles'
 
 export default class ClassCalc extends React.Component {

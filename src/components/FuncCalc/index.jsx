@@ -1,14 +1,10 @@
 /* eslint-disable */
 import React from 'react'
 
-import ControlPanel from '../ControlPanel'
-import Display from '../Display'
 import Wrapper from './styles'
 
-import {
-  SecondaryOperators,
-  MainOperators,
-} from '../../constants/math'
+import ControlPanel from '../ControlPanel'
+import Display from '../Display'
 
 import {
   doCalcExpression,
@@ -20,7 +16,6 @@ import {
   checkLastSignIsCloseBrackets,
   getLastNumberInExpr,
 } from '../../utilities/mathOperations'
-
 import {
   Calculator,
   AddCommand,
@@ -29,11 +24,12 @@ import {
   DivideCommand,
   ClearCommand,
 } from '../../utilities/calculator'
+
 import { HistoryContext } from '../../App'
 
 const calculator = new Calculator()
 
-export const FunctionalCalculator = () => {
+export default function FunctionalCalculator() {
   const { history, setHistory } =
     React.useContext(HistoryContext)
   const [expression, setExpression] = React.useState('0')
@@ -44,29 +40,28 @@ export const FunctionalCalculator = () => {
   const [isFinish, setIsFinish] = React.useState(false)
 
   const handleExpressionValue = (value) => {
-    console.log(history)
     switch (value) {
-      case SecondaryOperators.CLEAR_ALL:
+      case 'C':
         handleClearDisplay()
         break
 
-      case SecondaryOperators.COMMA:
+      case '.':
         handleComma(value)
         break
 
-      case SecondaryOperators.DELETE_LAST:
+      case '<':
         handleBackOneSign()
         break
 
-      case SecondaryOperators.OPPOSITE:
+      case '+/-':
         handleOppositeSign()
         break
 
-      case SecondaryOperators.OPEN_BRACKET:
+      case '(':
         handleOpenBracket(value)
         break
 
-      case SecondaryOperators.CLOSE_BRACKET:
+      case ')':
         handleCloseBracket(value)
         break
 
@@ -217,7 +212,7 @@ export const FunctionalCalculator = () => {
       handleImmediateResult(currentOperator)
     }
 
-    if (value === SecondaryOperators.EQUAL) {
+    if (value === '=') {
       handleCalculation()
       calculator.executeCommand(new ClearCommand())
       setResult('')
@@ -249,37 +244,30 @@ export const FunctionalCalculator = () => {
   const handleImmediateResult = (operator) => {
     const { lastNumber } = getLastNumberInExpr(expression)
     switch (operator) {
-      case MainOperators.MINUS:
+      case '-':
         calculator.executeCommand(
           new SubtractCommand(lastNumber),
         )
         setResult(calculator.value.toString())
         break
 
-      case MainOperators.PLUS:
+      case '+':
         calculator.executeCommand(
           new AddCommand(lastNumber),
         )
         setResult(calculator.value.toString())
         break
 
-      case MainOperators.DIV:
+      case '/':
         calculator.executeCommand(
           new DivideCommand(lastNumber),
         )
         setResult(calculator.value.toFixed(3))
         break
 
-      case MainOperators.MUL:
+      case '*':
         calculator.executeCommand(
           new MultiplyCommand(lastNumber),
-        )
-        setResult(calculator.value.toString())
-        break
-
-      case MainOperators.REM:
-        calculator.executeCommand(
-          new RemainderCommand(lastNumber),
         )
         setResult(calculator.value.toString())
         break
@@ -291,14 +279,8 @@ export const FunctionalCalculator = () => {
         setResult(calculator.value.toString())
     }
   }
-  const localStorageSetHistory = (historyCalc) => {
-    console.log(historyCalc)
-    const stringifiedValue = JSON.stringify(historyCalc)
-    localStorage.setItem('history', stringifiedValue)
-  }
-
   React.useEffect(() => {
-    localStorageSetHistory(history)
+    localStorage.setItem('history', JSON.stringify(history))
   }, [history])
 
   return (

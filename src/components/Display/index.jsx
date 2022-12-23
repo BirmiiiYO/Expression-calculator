@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import { DisplayBlock, Expression, Result } from './styles'
 
 export default class Display extends React.PureComponent {

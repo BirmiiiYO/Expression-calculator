@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+const Container = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
 `
-export const List = styled.ul.attrs(() => ({
+const List = styled.ul.attrs(() => ({
   type: 'list',
 }))`
   display: flex;
@@ -13,17 +13,17 @@ export const List = styled.ul.attrs(() => ({
   justify-content: center;
   align-items: center;
 `
-export const Title = styled.h1`
+const Title = styled.h1`
   color: ${({ theme }) => theme.text};
   font-size: 26px;
   margin-bottom: 10px;
 `
 
-export const Item = styled.li`
+const Item = styled.li`
   list-style-type: none;
 `
 
-export const Button = styled.button`
+const Button = styled.button`
   background: none;
   border: 1px solid ${({ theme }) => theme.text};
   border-radius: 5px;
@@ -33,3 +33,5 @@ export const Button = styled.button`
   margin-top: 20px;
   padding: 5px 10px;
 `
+
+export { Button, Container, Item, List, Title }

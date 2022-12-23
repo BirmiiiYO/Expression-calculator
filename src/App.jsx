@@ -3,16 +3,18 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
+import Layout from './Layout'
+import GlobalStyle from './styles/global'
+
 import Header from './components/Header'
 import Routing from './components/Routing'
 import ErrorBoundary from './components/ErrorBoundary'
-import Layout from './Layout'
-import GlobalStyle from './styles/global'
 
 import { changeThemeForProvider } from './utilities/changeTheme'
 
 export const ThemeContext = React.createContext('')
 export const HistoryContext = React.createContext('')
+
 function App() {
   const initialTheme = changeThemeForProvider(
     localStorage.getItem('theme'),

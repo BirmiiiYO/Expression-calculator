@@ -1,7 +1,4 @@
 import React from 'react'
-// eslint-disable-next-line import/no-cycle
-import { HistoryContext, ThemeContext } from '../../App'
-import { switchTheme } from '../../utilities/changeTheme'
 
 import {
   ClearButton,
@@ -9,6 +6,9 @@ import {
   MySelect,
   Title,
 } from './styles'
+// eslint-disable-next-line import/no-cycle
+import { HistoryContext, ThemeContext } from '../../App'
+import { switchTheme } from '../../utilities/changeTheme'
 
 export default function Settings() {
   const { setTheme } = React.useContext(ThemeContext)

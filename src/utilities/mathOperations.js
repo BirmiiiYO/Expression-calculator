@@ -1,5 +1,5 @@
 /* eslint-disable */
-function generateArrFromStr(str) {
+const generateArrFromStr = (str) => {
   const strArr = str.trim().split('')
 
   // str without spaces
@@ -43,12 +43,12 @@ function generateArrFromStr(str) {
 }
 
 // check if Brackets is paired
-export function checkBrackets(calculation) {
+const checkBrackets = (calculation) => {
   const stack = []
   for (const el of calculation) {
-    if (el == '(') {
+    if (el === '(') {
       stack.push(el)
-    } else if (el == ')') {
+    } else if (el === ')') {
       const topOfStack = stack[stack.length - 1]
       if (stack.length > 0 && topOfStack !== el) {
         stack.pop()
@@ -68,7 +68,7 @@ export function checkBrackets(calculation) {
   }
 }
 
-function doCalc(expr) {
+const doCalc = (expr) => {
   let calculation = expr
   const simple = {
     '+': (a, b) => a + b,
@@ -95,7 +95,7 @@ function doCalc(expr) {
         operatorIsExist = true
       } else if (operatorIsExist) {
         if (
-          curOperator == operator['/'] &&
+          curOperator === operator['/'] &&
           currentEl === 0
         ) {
           throw new Error('TypeError: Division by zero!!!')
@@ -123,7 +123,7 @@ function doCalc(expr) {
   return Math.round(+res * 1000) / 1000
 }
 
-export function doCalcExpression(expr) {
+const doCalcExpression = (expr) => {
   const calculation = generateArrFromStr(expr)
 
   // if brackets is paired continue
@@ -171,12 +171,12 @@ export function doCalcExpression(expr) {
   return calculation[0]
 }
 
-function separateStrBySymbols(str) {
+const separateStrBySymbols = (str) => {
   const regExp = /\+|\-|\/|\)|\(|\%|x/
   return str.split(regExp)
 }
 
-export function checkCommaIsUnique(expr) {
+const checkCommaIsUnique = (expr) => {
   const arr = separateStrBySymbols(expr)
   const lastEl = arr[arr.length - 1]
   const isCommaAlreadyExist = lastEl.includes('.')
@@ -184,7 +184,7 @@ export function checkCommaIsUnique(expr) {
   return { isCommaAlreadyExist }
 }
 
-export function checkLastSignIsOperator(expr) {
+const checkLastSignIsOperator = (expr) => {
   const operators = '+-/x%'
   const lastInExpression = expr[expr.length - 1]
   const lastSignIsOperator = operators.includes(
@@ -193,19 +193,19 @@ export function checkLastSignIsOperator(expr) {
   return { lastSignIsOperator }
 }
 
-export function checkLastSignIsOpenBrackets(expr) {
+const checkLastSignIsOpenBrackets = (expr) => {
   const lastInExpression = expr[expr.length - 1]
   const lastSignIsOpenBracket = lastInExpression === '('
   return { lastSignIsOpenBracket }
 }
 
-export function checkLastSignIsCloseBrackets(expr) {
+const checkLastSignIsCloseBrackets = (expr) => {
   const lastInExpression = expr[expr.length - 1]
   const lastSignIsCloseBracket = lastInExpression === ')'
   return { lastSignIsCloseBracket }
 }
 
-export function checkNumberExistAfterLastOpenBracket(expr) {
+const checkNumberExistAfterLastOpenBracket = (expr) => {
   const indexOfLastOpenBr = expr.lastIndexOf('(')
   const subStrFromLastOpenBr = expr.substring(
     indexOfLastOpenBr,
@@ -215,22 +215,36 @@ export function checkNumberExistAfterLastOpenBracket(expr) {
   return { numberIsExist }
 }
 
-export function checkExprContainsBracket(expr) {
+const checkExprContainsBracket = (expr) => {
   const regExp = /\(|\)/
   return regExp.test(expr)
 }
 
-export function getLastNumberInExpr(expr) {
+const getLastNumberInExpr = (expr) => {
   const arr = generateArrFromStr(expr)
   const lastNumber = Number(arr[arr.length - 1])
   return { lastNumber }
 }
 
-export function generateErrorMsg(msg) {
+const generateErrorMsg = (msg) => {
   const str = msg.split(':')
   return str[str.length - 1]
 }
 
-export function numberIsFloat(n) {
+const numberIsFloat = (n) => {
   return n % 1 !== 0 ? false : true
+}
+
+export {
+  numberIsFloat,
+  generateErrorMsg,
+  getLastNumberInExpr,
+  checkExprContainsBracket,
+  checkNumberExistAfterLastOpenBracket,
+  checkLastSignIsCloseBrackets,
+  checkLastSignIsOpenBrackets,
+  checkLastSignIsOperator,
+  checkCommaIsUnique,
+  doCalcExpression,
+  checkBrackets,
 }
