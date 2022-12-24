@@ -4,4 +4,4 @@ const Wrapper = styled.div`
   flex: 1 1 80%;
 `
 
-export default Wrapper
+export { Wrapper }

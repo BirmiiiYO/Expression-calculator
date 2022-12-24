@@ -7,4 +7,4 @@ const ErrorTitle = styled.h1`
   text-align: center;
 `
 
-export default ErrorTitle
+export { ErrorTitle }

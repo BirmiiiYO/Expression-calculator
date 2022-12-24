@@ -1,8 +1,8 @@
 /* eslint-disable */
 import React from 'react'
 
-import ControlPanel from '@components/ControlPanel'
-import Display from '@components/Display'
+import { ControlPanel } from '@components/ControlPanel'
+import { Display } from '@components/Display'
 
 import {
   doCalcExpression,
@@ -27,7 +27,7 @@ import {
 
 import { OPERATORS } from '@constants/operators'
 
-import Wrapper from './styles'
+import { Wrapper } from './styles'
 
 export class ClassCalculator extends React.Component {
   constructor(props) {
@@ -42,7 +42,6 @@ export class ClassCalculator extends React.Component {
     this.calculator = new Calculator()
   }
 
-  // чего он ругается на равно?
   handleExpressionValue = (value) => {
     switch (value) {
       case OPERATORS.CLEAR:
@@ -102,8 +101,9 @@ export class ClassCalculator extends React.Component {
     const { expression, isError } = this.state
     if (!isError) {
       if (expression.length > 1) {
-        const cutValue = expression.slice(0, -1)
-        this.setState({ expression: cutValue })
+        this.setState({
+          expression: expression.slice(0, -1),
+        })
       } else {
         this.setState({ expression: '0' })
       }
@@ -125,7 +125,10 @@ export class ClassCalculator extends React.Component {
       checkLastSignIsOperator(expression)
 
     if (!isError) {
-      if (value === '(' && lastSignIsOperator) {
+      if (
+        value === OPERATORS.OPEN_BRACKET &&
+        lastSignIsOperator
+      ) {
         this.calculator.executeCommand(new ClearCommand())
         this.setState({ result: '0', currentOperator: '' })
       }
@@ -160,7 +163,7 @@ export class ClassCalculator extends React.Component {
     if (
       expression.length !== 1 &&
       !lastSignIsOperator &&
-      expression.includes('(') &&
+      expression.includes(OPERATORS.OPEN_BRACKET) &&
       numberIsExist
     ) {
       this.setState({ currentOperator: '' })
@@ -224,7 +227,6 @@ export class ClassCalculator extends React.Component {
       }
     }
 
-    // immediateResult
     if (
       curValueIsOperator &&
       !lastSignIsCloseBracket &&
@@ -234,7 +236,7 @@ export class ClassCalculator extends React.Component {
       this.handleImmediateResult(currentOperator)
     }
 
-    if (value === '=') {
+    if (value === OPERATORS.EQUAL) {
       this.handleCalculation()
       this.calculator.executeCommand(new ClearCommand())
       this.setState({ result: '', isFinished: true })

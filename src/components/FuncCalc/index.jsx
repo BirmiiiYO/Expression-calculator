@@ -1,10 +1,10 @@
 /* eslint-disable */
 import React from 'react'
 
-import Wrapper from './styles'
+import { Wrapper } from './styles'
 
-import ControlPanel from '@components/ControlPanel'
-import Display from '@components/Display'
+import { ControlPanel } from '@components/ControlPanel'
+import { Display } from '@components/Display'
 
 import { OPERATORS } from '@constants/operators'
 

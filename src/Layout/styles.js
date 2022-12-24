@@ -6,4 +6,4 @@ const LayoutWrapper = styled.div`
   justify-content: center;
 `
 
-export default LayoutWrapper
+export { LayoutWrapper }

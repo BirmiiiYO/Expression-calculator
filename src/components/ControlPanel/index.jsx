@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import btnValues from '@constants/keyboard'
+import { btnValues } from '@constants/keyboard'
 
 import { Button, Container, Row } from './styles'
 
-export default function ControlPanel({ handleClick }) {
+export const ControlPanel = ({ handleClick }) => {
   const onButtonClick = (value) => () => {
     handleClick(value)
   }

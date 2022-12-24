@@ -7,7 +7,7 @@ import {
   Title,
 } from './styles'
 
-export default function Header() {
+export const Header = () => {
   return (
     <HeaderContainer>
       <Title>Calculator App</Title>

@@ -1,22 +1,23 @@
+/* eslint-disable react/function-component-definition */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-cycle */
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import Layout from '@layout'
+import { Layout } from '@layout'
 import GlobalStyle from '@styles/global'
 
-import Header from '@components/Header'
-import Routing from '@components/Routing'
-import ErrorBoundary from '@components/ErrorBoundary'
+import { Header } from '@components/Header'
+import { Routing } from '@components/Routing'
+import { ErrorBoundary } from '@components/ErrorBoundary'
 
 import { changeThemeForProvider } from '@utilities/changeTheme'
 
 export const ThemeContext = React.createContext('')
 export const HistoryContext = React.createContext('')
 
-function App() {
+export const App = () => {
   const initialTheme = changeThemeForProvider(
     localStorage.getItem('theme'),
   )
@@ -43,5 +44,3 @@ function App() {
     </ThemeContext.Provider>
   )
 }
-
-export default App

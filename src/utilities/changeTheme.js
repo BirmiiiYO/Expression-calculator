@@ -1,6 +1,6 @@
 import { color, dark, light } from '../styles/themes'
 
-export const changeThemeForProvider = (value) => {
+const changeThemeForProvider = (value) => {
   switch (value) {
     case 'light':
       return light
@@ -13,7 +13,7 @@ export const changeThemeForProvider = (value) => {
   }
 }
 
-export const switchTheme = (theme) => {
+const switchTheme = (theme) => {
   switch (theme) {
     case 'light': {
       localStorage.setItem('theme', 'light')
@@ -31,3 +31,5 @@ export const switchTheme = (theme) => {
       return dark
   }
 }
+
+export { changeThemeForProvider, switchTheme }

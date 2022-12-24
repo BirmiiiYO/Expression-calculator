@@ -4,12 +4,12 @@ import React from 'react'
 import close from '@assets/back-arrow.png'
 import open from '@assets/forward-arrow.png'
 
-import History from '@components/History'
-import ClassCalculator from '@components/ClassCalc'
+import { History } from '@components/History'
+import { ClassCalculator } from '@components/ClassCalc'
 
 import { Button, Container, Left, Right } from './styles'
 
-export default class ClassCalc extends React.Component {
+export class ClassCalc extends React.Component {
   constructor(props) {
     super(props)
     this.state = {

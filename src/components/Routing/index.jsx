@@ -3,9 +3,9 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
-import ClassCalc from '@pages/Class'
-import FuncCalc from '@pages/Func'
-import Settings from '@pages/Settings'
+import { ClassCalc } from '@pages/Class'
+import { FuncCalc } from '@pages/Func'
+import { Settings } from '@pages/Settings'
 
 import { PAGE_ROUTES } from '@constants/routes'
 

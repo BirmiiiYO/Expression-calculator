@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { DisplayBlock, Expression, Result } from './styles'
 
-export default class Display extends React.PureComponent {
+export class Display extends React.PureComponent {
   render() {
     const { value, error, result } = this.props
     return (

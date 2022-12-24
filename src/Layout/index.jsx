@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 
-import LayoutWrapper from './styles'
+import { LayoutWrapper } from './styles'
 
-export default function Layout({ children }) {
-  return <LayoutWrapper>{children}</LayoutWrapper>
-}
+export const Layout = ({ children }) => (
+  <LayoutWrapper>{children}</LayoutWrapper>
+)
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
