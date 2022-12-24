@@ -1,9 +1,8 @@
+/* eslint-disable */
 import React from 'react'
 
-import ControlPanel from '../ControlPanel'
-import Display from '../Display'
-
-import Wrapper from './styles'
+import ControlPanel from '@components/ControlPanel'
+import Display from '@components/Display'
 
 import {
   doCalcExpression,
@@ -15,7 +14,7 @@ import {
   checkLastSignIsCloseBrackets,
   getLastNumberInExpr,
   numberIsFloat,
-} from '../../utilities/mathOperations'
+} from '@utilities/mathOperations'
 
 import {
   Calculator,
@@ -24,9 +23,13 @@ import {
   MultiplyCommand,
   DivideCommand,
   ClearCommand,
-} from '../../utilities/calculator'
+} from '@utilities/calculator'
 
-export default class ClassCalculator extends React.Component {
+import { OPERATORS } from '@constants/operators'
+
+import Wrapper from './styles'
+
+export class ClassCalculator extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -42,27 +45,27 @@ export default class ClassCalculator extends React.Component {
   // чего он ругается на равно?
   handleExpressionValue = (value) => {
     switch (value) {
-      case 'C':
+      case OPERATORS.CLEAR:
         this.handleClearDisplay()
         break
 
-      case '.':
+      case OPERATORS.COMMA:
         this.handleComma(value)
         break
 
-      case '<':
+      case OPERATORS.DELETE_LAST:
         this.handleBackOneSign()
         break
 
-      case '+/-':
+      case OPERATORS.OPPOSITE:
         this.handleOppositeSign()
         break
 
-      case '(':
+      case OPERATORS.OPEN_BRACKET:
         this.handleOpenBracket(value)
         break
 
-      case ')':
+      case OPERATORS.CLOSE_BRACKET:
         this.handleCloseBracket(value)
         break
 
@@ -181,13 +184,12 @@ export default class ClassCalculator extends React.Component {
       checkLastSignIsOpenBrackets(expression)
     const { lastSignIsCloseBracket } =
       checkLastSignIsCloseBrackets(expression)
-    const isDoubleZero = value === '00'
     if (curValueIsOperator) {
       this.setState({ currentOperator: value })
     }
 
     if (expression === '0') {
-      if (!isDoubleZero && !curValueIsOperator) {
+      if (!curValueIsOperator) {
         this.setState({
           expression: value,
           isFinished: false,
@@ -197,12 +199,10 @@ export default class ClassCalculator extends React.Component {
       if (isError && !curValueIsOperator) {
         this.setState({ expression: value, isError: false })
       } else if (isFinished && !curValueIsOperator) {
-        if (!isDoubleZero) {
-          this.setState({
-            expression: value,
-            isFinished: false,
-          })
-        }
+        this.setState({
+          expression: value,
+          isFinished: false,
+        })
       } else {
         if (
           !lastSignIsOperator &&
@@ -215,12 +215,10 @@ export default class ClassCalculator extends React.Component {
           }))
         } else {
           if (!curValueIsOperator) {
-            if (!isDoubleZero) {
-              this.setState(({ expression }) => ({
-                expression: expression + value,
-                isFinished: false,
-              }))
-            }
+            this.setState(({ expression }) => ({
+              expression: expression + value,
+              isFinished: false,
+            }))
           }
         }
       }
@@ -248,7 +246,7 @@ export default class ClassCalculator extends React.Component {
       this.state.expression,
     )
     switch (operator) {
-      case '-':
+      case OPERATORS.MINUS:
         this.calculator.executeCommand(
           new SubtractCommand(lastNumber),
         )
@@ -259,7 +257,7 @@ export default class ClassCalculator extends React.Component {
         })
         break
 
-      case '+':
+      case OPERATORS.PLUS:
         this.calculator.executeCommand(
           new AddCommand(lastNumber),
         )
@@ -270,7 +268,7 @@ export default class ClassCalculator extends React.Component {
         })
         break
 
-      case '/':
+      case OPERATORS.DIVIDE:
         this.calculator.executeCommand(
           new DivideCommand(lastNumber),
         )
@@ -281,7 +279,7 @@ export default class ClassCalculator extends React.Component {
         })
         break
 
-      case '*':
+      case OPERATORS.MULTIPLY:
         this.calculator.executeCommand(
           new MultiplyCommand(lastNumber),
         )

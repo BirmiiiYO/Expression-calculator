@@ -1,16 +1,17 @@
+/* eslint-disable import/no-unresolved */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/no-cycle */
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
-import Layout from './Layout'
-import GlobalStyle from './styles/global'
+import Layout from '@layout'
+import GlobalStyle from '@styles/global'
 
-import Header from './components/Header'
-import Routing from './components/Routing'
-import ErrorBoundary from './components/ErrorBoundary'
+import Header from '@components/Header'
+import Routing from '@components/Routing'
+import ErrorBoundary from '@components/ErrorBoundary'
 
-import { changeThemeForProvider } from './utilities/changeTheme'
+import { changeThemeForProvider } from '@utilities/changeTheme'
 
 export const ThemeContext = React.createContext('')
 export const HistoryContext = React.createContext('')

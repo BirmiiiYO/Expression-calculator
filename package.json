@@ -13,8 +13,8 @@
     "styled-components": "^5.3.6"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "lint": "eslint src/**/*.js src/**/*.jsx",
@@ -46,6 +46,8 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.2",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "prettier": "^2.5.1"
+    "prettier": "^2.5.1",
+    "react-app-rewire-alias": "^1.1.7",
+    "react-app-rewired": "^2.2.1"
   }
 }

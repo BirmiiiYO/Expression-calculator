@@ -3,8 +3,10 @@ import React from 'react'
 
 import Wrapper from './styles'
 
-import ControlPanel from '../ControlPanel'
-import Display from '../Display'
+import ControlPanel from '@components/ControlPanel'
+import Display from '@components/Display'
+
+import { OPERATORS } from '@constants/operators'
 
 import {
   doCalcExpression,
@@ -15,7 +17,7 @@ import {
   checkNumberExistAfterLastOpenBracket,
   checkLastSignIsCloseBrackets,
   getLastNumberInExpr,
-} from '../../utilities/mathOperations'
+} from '@utilities/mathOperations'
 import {
   Calculator,
   AddCommand,
@@ -23,13 +25,13 @@ import {
   MultiplyCommand,
   DivideCommand,
   ClearCommand,
-} from '../../utilities/calculator'
+} from '@utilities/calculator'
 
-import { HistoryContext } from '../../App'
+import { HistoryContext } from '@src/App'
 
 const calculator = new Calculator()
 
-export default function FunctionalCalculator() {
+export const FunctionalCalculator = () => {
   const { history, setHistory } =
     React.useContext(HistoryContext)
   const [expression, setExpression] = React.useState('0')
@@ -41,27 +43,27 @@ export default function FunctionalCalculator() {
 
   const handleExpressionValue = (value) => {
     switch (value) {
-      case 'C':
+      case OPERATORS.CLEAR:
         handleClearDisplay()
         break
 
-      case '.':
+      case OPERATORS.COMMA:
         handleComma(value)
         break
 
-      case '<':
+      case OPERATORS.DELETE_LAST:
         handleBackOneSign()
         break
 
-      case '+/-':
+      case OPERATORS.OPPOSITE:
         handleOppositeSign()
         break
 
-      case '(':
+      case OPERATORS.OPEN_BRACKET:
         handleOpenBracket(value)
         break
 
-      case ')':
+      case OPERATORS.CLOSE_BRACKET:
         handleCloseBracket(value)
         break
 
@@ -163,13 +165,12 @@ export default function FunctionalCalculator() {
       checkLastSignIsOpenBrackets(expression)
     const { lastSignIsCloseBracket } =
       checkLastSignIsCloseBrackets(expression)
-    const isDoubleZero = value === '00'
     if (curValueIsOperator) {
       setCurrentOperator(value)
     }
 
     if (expression === '0') {
-      if (!isDoubleZero && !curValueIsOperator) {
+      if (!curValueIsOperator) {
         setExpression(value)
         setIsFinish(false)
       }
@@ -179,10 +180,8 @@ export default function FunctionalCalculator() {
         setIsError(false)
         setExpression(value)
       } else if (isFinish && !curValueIsOperator) {
-        if (!isDoubleZero) {
-          setIsFinish(false)
-          setExpression(value)
-        }
+        setIsFinish(false)
+        setExpression(value)
       } else {
         // sign need to be added
         if (
@@ -194,10 +193,8 @@ export default function FunctionalCalculator() {
           setIsFinish(false)
         } else {
           if (!curValueIsOperator) {
-            if (!isDoubleZero) {
-              setExpression(expression + value)
-              setIsFinish(false)
-            }
+            setExpression(expression + value)
+            setIsFinish(false)
           }
         }
       }
@@ -212,7 +209,7 @@ export default function FunctionalCalculator() {
       handleImmediateResult(currentOperator)
     }
 
-    if (value === '=') {
+    if (value === OPERATORS.EQUAL) {
       handleCalculation()
       calculator.executeCommand(new ClearCommand())
       setResult('')
@@ -244,28 +241,28 @@ export default function FunctionalCalculator() {
   const handleImmediateResult = (operator) => {
     const { lastNumber } = getLastNumberInExpr(expression)
     switch (operator) {
-      case '-':
+      case OPERATORS.MINUS:
         calculator.executeCommand(
           new SubtractCommand(lastNumber),
         )
         setResult(calculator.value.toString())
         break
 
-      case '+':
+      case OPERATORS.PLUS:
         calculator.executeCommand(
           new AddCommand(lastNumber),
         )
         setResult(calculator.value.toString())
         break
 
-      case '/':
+      case OPERATORS.DIVIDE:
         calculator.executeCommand(
           new DivideCommand(lastNumber),
         )
         setResult(calculator.value.toFixed(3))
         break
 
-      case '*':
+      case OPERATORS.MULTIPLY:
         calculator.executeCommand(
           new MultiplyCommand(lastNumber),
         )

@@ -1,8 +1,7 @@
 import React from 'react'
 
+import { HistoryContext } from '@src/App'
 import { Container, Item, List, Title } from './styles'
-// eslint-disable-next-line import/no-cycle
-import { HistoryContext } from '../../App'
 
 export default function History() {
   return (
