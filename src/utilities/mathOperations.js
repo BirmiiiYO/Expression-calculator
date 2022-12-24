@@ -1,4 +1,3 @@
-/* eslint-disable */
 const generateArrFromStr = (str) => {
   const strArr = str.trim().split('')
 
@@ -37,9 +36,9 @@ const generateArrFromStr = (str) => {
     const temp = calculation[1]
     calculation[1] = temp * -1
     return calculation.splice(1, calculation.length)
-  } else {
+  } 
     return calculation
-  }
+  
 }
 
 // check if Brackets is paired
@@ -61,11 +60,11 @@ const checkBrackets = (calculation) => {
   }
   if (!stack.length) {
     return true
-  } else {
+  } 
     throw new Error(
       'ExpressionError: Brackets must be paired!!!',
     )
-  }
+  
 }
 
 const doCalc = (expr) => {
@@ -231,9 +230,7 @@ const generateErrorMsg = (msg) => {
   return str[str.length - 1]
 }
 
-const numberIsFloat = (n) => {
-  return n % 1 !== 0 ? false : true
-}
+const numberIsFloat = (n) => n % 1 === 0
 
 export {
   numberIsFloat,

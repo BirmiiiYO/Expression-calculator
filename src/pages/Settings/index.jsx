@@ -1,6 +1,5 @@
 import React from 'react'
 
-// eslint-disable-next-line import/no-cycle
 import { HistoryContext, ThemeContext } from '@src/App'
 import { switchTheme } from '@utilities/changeTheme'
 import {
@@ -10,7 +9,7 @@ import {
   Title,
 } from './styles'
 
-export const Settings = () => {
+export function Settings() {
   const { setTheme } = React.useContext(ThemeContext)
   const { setHistory } = React.useContext(HistoryContext)
   const clearHistory = () => {

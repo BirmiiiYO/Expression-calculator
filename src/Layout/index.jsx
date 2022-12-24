@@ -3,9 +3,9 @@ import React from 'react'
 
 import { LayoutWrapper } from './styles'
 
-export const Layout = ({ children }) => (
-  <LayoutWrapper>{children}</LayoutWrapper>
-)
+export function Layout({ children }) {
+  return <LayoutWrapper>{children}</LayoutWrapper>
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

@@ -5,7 +5,7 @@ import { btnValues } from '@constants/keyboard'
 
 import { Button, Container, Row } from './styles'
 
-export const ControlPanel = ({ handleClick }) => {
+export function ControlPanel({ handleClick }) {
   const onButtonClick = (value) => () => {
     handleClick(value)
   }

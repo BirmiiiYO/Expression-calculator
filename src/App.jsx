@@ -1,7 +1,3 @@
-/* eslint-disable react/function-component-definition */
-/* eslint-disable import/no-unresolved */
-/* eslint-disable react/jsx-no-constructed-context-values */
-/* eslint-disable import/no-cycle */
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
@@ -17,7 +13,7 @@ import { changeThemeForProvider } from '@utilities/changeTheme'
 export const ThemeContext = React.createContext('')
 export const HistoryContext = React.createContext('')
 
-export const App = () => {
+export function App() {
   const initialTheme = changeThemeForProvider(
     localStorage.getItem('theme'),
   )

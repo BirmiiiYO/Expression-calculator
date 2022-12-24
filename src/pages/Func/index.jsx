@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import React from 'react'
 
 import close from '@assets/back-arrow.png'
@@ -8,7 +7,7 @@ import { FunctionalCalculator } from '@components/FuncCalc'
 import { History } from '@components/History'
 import { Button, Container, Left, Right } from './styles'
 
-export const FuncCalc = () => {
+export function FuncCalc() {
   const [isOpen, setIsOpen] = React.useState(false)
   const toggleHistory = () => {
     setIsOpen(!isOpen)

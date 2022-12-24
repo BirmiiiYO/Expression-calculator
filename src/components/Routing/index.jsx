@@ -1,5 +1,3 @@
-/* eslint-disable import/no-unresolved */
-/* eslint-disable import/no-cycle */
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 
@@ -9,7 +7,7 @@ import { Settings } from '@pages/Settings'
 
 import { PAGE_ROUTES } from '@constants/routes'
 
-export default function Routing() {
+export function Routing() {
   return (
     <Routes>
       <Route

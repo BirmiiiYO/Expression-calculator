@@ -1,7 +1,5 @@
-/* eslint-disable */
 import React from 'react'
 
-import { Wrapper } from './styles'
 
 import { ControlPanel } from '@components/ControlPanel'
 import { Display } from '@components/Display'
@@ -28,10 +26,11 @@ import {
 } from '@utilities/calculator'
 
 import { HistoryContext } from '@src/App'
+import { Wrapper } from './styles'
 
 const calculator = new Calculator()
 
-export const FunctionalCalculator = () => {
+export function FunctionalCalculator() {
   const { history, setHistory } =
     React.useContext(HistoryContext)
   const [expression, setExpression] = React.useState('0')
@@ -191,12 +190,10 @@ export const FunctionalCalculator = () => {
         ) {
           setExpression(expression + value)
           setIsFinish(false)
-        } else {
-          if (!curValueIsOperator) {
+        } else if (!curValueIsOperator) {
             setExpression(expression + value)
             setIsFinish(false)
           }
-        }
       }
     }
     // immediateResult
