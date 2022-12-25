@@ -9,7 +9,7 @@ import {
   Title,
 } from './styles'
 
-export function Settings() {
+export const Settings = () => {
   const { setTheme } = React.useContext(ThemeContext)
   const { setHistory } = React.useContext(HistoryContext)
   const clearHistory = () => {

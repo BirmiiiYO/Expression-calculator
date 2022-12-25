@@ -35,6 +35,7 @@
     "no-use-before-define":"off",
     "max-classes-per-file":0,
     "no-restricted-syntax":"off",
+    "react/function-component-definition":"off",
     "simple-import-sort/imports": "error",
     "no-useless-escape":"off",
     "simple-import-sort/exports": "error",
