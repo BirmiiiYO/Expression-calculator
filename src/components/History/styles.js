@@ -10,8 +10,11 @@ const List = styled.ul.attrs(() => ({
 }))`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  height: 450px;
+  width: 160px;
+  overflow-y: scroll;
+  overflow-x: hidden;
 `
 const Title = styled.h1`
   color: ${({ theme }) => theme.text};

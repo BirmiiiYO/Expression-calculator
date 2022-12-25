@@ -1,3 +1,4 @@
+import * as consts from '@styles/consts'
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
@@ -13,7 +14,17 @@ export default createGlobalStyle`
     color: ${({ theme }) => theme.text};
     transition: background-color 1000ms linear;
     font-family: 'Space Mono', monospace;
-    font-size: 16px;
-    font-weight: 500;
+    font-size: ${consts.FONT_SIZE.S}px;
+    font-weight: ${consts.FONT_SIZE.M}px;
   }
+  ::-webkit-scrollbar {
+    width: 16px; /* ширина для вертикального скролла */
+    border-radius: ${consts.BORDER_RADIUS.L}px;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.body};
+    border-radius: ${consts.BORDER_RADIUS.L}px;
+}
 `

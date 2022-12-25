@@ -5,9 +5,9 @@ const Container = styled.div`
   border: 1px solid;
   border-radius: 7px;
   display: flex;
+  height: 570px;
   margin-top: 20px;
   max-width: 1000px;
-  min-height: 500px;
   padding: 20px;
 `
 const Left = styled.div`
