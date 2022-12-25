@@ -1,30 +1,26 @@
-import React from 'react'
-
 import { ControlPanel } from '@components/ControlPanel'
 import { Display } from '@components/Display'
-
+import { OPERATORS } from '@constants/operators'
 import {
-  doCalcExpression,
+  AddCommand,
+  Calculator,
+  ClearCommand,
+  DivideCommand,
+  MultiplyCommand,
+  SubtractCommand,
+} from '@utilities/calculator'
+import {
   checkCommaIsUnique,
-  checkLastSignIsOperator,
-  generateErrorMsg,
-  checkLastSignIsOpenBrackets,
-  checkNumberExistAfterLastOpenBracket,
   checkLastSignIsCloseBrackets,
+  checkLastSignIsOpenBrackets,
+  checkLastSignIsOperator,
+  checkNumberExistAfterLastOpenBracket,
+  doCalcExpression,
+  generateErrorMsg,
   getLastNumberInExpr,
   numberIsFloat,
 } from '@utilities/mathOperations'
-
-import {
-  Calculator,
-  AddCommand,
-  SubtractCommand,
-  MultiplyCommand,
-  DivideCommand,
-  ClearCommand,
-} from '@utilities/calculator'
-
-import { OPERATORS } from '@constants/operators'
+import React from 'react'
 
 import { Wrapper } from './styles'
 
@@ -197,33 +193,27 @@ export class ClassCalculator extends React.Component {
           isFinished: false,
         })
       }
-    } else {
-      if (isError && !curValueIsOperator) {
-        this.setState({ expression: value, isError: false })
-      } else if (isFinished && !curValueIsOperator) {
-        this.setState({
-          expression: value,
-          isFinished: false,
-        })
-      } else {
-        if (
-          !lastSignIsOperator &&
-          !isError &&
-          !lastSignIsOpenBracket
-        ) {
-          this.setState(({ expression }) => ({
-            expression: expression + value,
-            isFinished: false,
-          }))
-        } else {
-          if (!curValueIsOperator) {
-            this.setState(({ expression }) => ({
-              expression: expression + value,
-              isFinished: false,
-            }))
-          }
-        }
-      }
+    } else if (isError && !curValueIsOperator) {
+      this.setState({ expression: value, isError: false })
+    } else if (isFinished && !curValueIsOperator) {
+      this.setState({
+        expression: value,
+        isFinished: false,
+      })
+    } else if (
+      !lastSignIsOperator &&
+      !isError &&
+      !lastSignIsOpenBracket
+    ) {
+      this.setState(() => ({
+        expression: expression + value,
+        isFinished: false,
+      }))
+    } else if (!curValueIsOperator) {
+      this.setState(() => ({
+        expression: expression + value,
+        isFinished: false,
+      }))
     }
 
     if (
@@ -243,9 +233,8 @@ export class ClassCalculator extends React.Component {
   }
 
   handleImmediateResult = (operator) => {
-    const { lastNumber } = getLastNumberInExpr(
-      this.state.expression,
-    )
+    const { expression } = this.state
+    const { lastNumber } = getLastNumberInExpr(expression)
     switch (operator) {
       case OPERATORS.MINUS:
         this.calculator.executeCommand(
@@ -304,7 +293,8 @@ export class ClassCalculator extends React.Component {
   }
 
   handleCalculation = () => {
-    const res = doCalcExpression(this.state.expression)
+    const { expression } = this.state
+    const res = doCalcExpression(expression)
 
     if (res || res === 0) {
       if (String(res).includes('Error')) {
@@ -324,6 +314,7 @@ export class ClassCalculator extends React.Component {
       }
     }
   }
+
   render() {
     const { expression, isError, result } = this.state
     return (

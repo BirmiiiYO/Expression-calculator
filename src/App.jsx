@@ -1,14 +1,11 @@
-import React from 'react'
-import { ThemeProvider } from 'styled-components'
-
-import { Layout } from '@layout'
-import GlobalStyle from '@styles/global'
-
+import { ErrorBoundary } from '@components/ErrorBoundary'
 import { Header } from '@components/Header'
 import { Routing } from '@components/Routing'
-import { ErrorBoundary } from '@components/ErrorBoundary'
-
+import { Layout } from '@layout'
+import GlobalStyle from '@styles/global'
 import { changeThemeForProvider } from '@utilities/changeTheme'
+import React from 'react'
+import { ThemeProvider } from 'styled-components'
 
 export const ThemeContext = React.createContext('')
 export const HistoryContext = React.createContext('')

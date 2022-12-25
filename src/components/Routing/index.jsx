@@ -1,11 +1,9 @@
-import React from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
-
+import { PAGE_ROUTES } from '@constants/routes'
 import { ClassCalc } from '@pages/Class'
 import { FuncCalc } from '@pages/Func'
 import { Settings } from '@pages/Settings'
-
-import { PAGE_ROUTES } from '@constants/routes'
+import React from 'react'
+import { Navigate, Route, Routes } from 'react-router-dom'
 
 export function Routing() {
   return (

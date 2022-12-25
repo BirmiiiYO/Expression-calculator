@@ -14,7 +14,7 @@ const generateArrFromStr = (str) => {
   const calculation = []
   let current = ''
 
-  for (let i = 0; i < nakedStr.length; i++) {
+  for (let i = 0; i < nakedStr.length; i += 1) {
     const symbol = nakedStr[i]
     if (symbolStr.includes(symbol)) {
       if (current.length > 0) {
@@ -36,9 +36,8 @@ const generateArrFromStr = (str) => {
     const temp = calculation[1]
     calculation[1] = temp * -1
     return calculation.splice(1, calculation.length)
-  } 
-    return calculation
-  
+  }
+  return calculation
 }
 
 // check if Brackets is paired
@@ -60,11 +59,10 @@ const checkBrackets = (calculation) => {
   }
   if (!stack.length) {
     return true
-  } 
-    throw new Error(
-      'ExpressionError: Brackets must be paired!!!',
-    )
-  
+  }
+  throw new Error(
+    'ExpressionError: Brackets must be paired!!!',
+  )
 }
 
 const doCalc = (expr) => {
@@ -86,7 +84,7 @@ const doCalc = (expr) => {
   let curOperator = (a, b) => a + b
 
   for (const operator of operators) {
-    for (let i = 0; i < calculation.length; i++) {
+    for (let i = 0; i < calculation.length; i += 1) {
       // if current el of calculation is operator then remember it for further operation else it is number - push it to newCalculation array
       const currentEl = calculation[i]
       if (operator[currentEl]) {
@@ -233,15 +231,15 @@ const generateErrorMsg = (msg) => {
 const numberIsFloat = (n) => n % 1 === 0
 
 export {
-  numberIsFloat,
-  generateErrorMsg,
-  getLastNumberInExpr,
+  checkBrackets,
+  checkCommaIsUnique,
   checkExprContainsBracket,
-  checkNumberExistAfterLastOpenBracket,
   checkLastSignIsCloseBrackets,
   checkLastSignIsOpenBrackets,
   checkLastSignIsOperator,
-  checkCommaIsUnique,
+  checkNumberExistAfterLastOpenBracket,
   doCalcExpression,
-  checkBrackets,
+  generateErrorMsg,
+  getLastNumberInExpr,
+  numberIsFloat,
 }

@@ -1,10 +1,8 @@
-import React from 'react'
-
 import close from '@assets/back-arrow.png'
 import open from '@assets/forward-arrow.png'
-
-import { History } from '@components/History'
 import { ClassCalculator } from '@components/ClassCalc'
+import { History } from '@components/History'
+import React from 'react'
 
 import { Button, Container, Left, Right } from './styles'
 

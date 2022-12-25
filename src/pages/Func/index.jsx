@@ -1,10 +1,9 @@
-import React from 'react'
-
 import close from '@assets/back-arrow.png'
 import open from '@assets/forward-arrow.png'
-
 import { FunctionalCalculator } from '@components/FuncCalc'
 import { History } from '@components/History'
+import React from 'react'
+
 import { Button, Container, Left, Right } from './styles'
 
 export function FuncCalc() {

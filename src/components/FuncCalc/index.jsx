@@ -1,31 +1,27 @@
-import React from 'react'
-
-
 import { ControlPanel } from '@components/ControlPanel'
 import { Display } from '@components/Display'
-
 import { OPERATORS } from '@constants/operators'
-
+import { HistoryContext } from '@src/App'
 import {
-  doCalcExpression,
+  AddCommand,
+  Calculator,
+  ClearCommand,
+  DivideCommand,
+  MultiplyCommand,
+  SubtractCommand,
+} from '@utilities/calculator'
+import {
   checkCommaIsUnique,
-  checkLastSignIsOperator,
-  generateErrorMsg,
-  checkLastSignIsOpenBrackets,
-  checkNumberExistAfterLastOpenBracket,
   checkLastSignIsCloseBrackets,
+  checkLastSignIsOpenBrackets,
+  checkLastSignIsOperator,
+  checkNumberExistAfterLastOpenBracket,
+  doCalcExpression,
+  generateErrorMsg,
   getLastNumberInExpr,
 } from '@utilities/mathOperations'
-import {
-  Calculator,
-  AddCommand,
-  SubtractCommand,
-  MultiplyCommand,
-  DivideCommand,
-  ClearCommand,
-} from '@utilities/calculator'
+import React from 'react'
 
-import { HistoryContext } from '@src/App'
 import { Wrapper } from './styles'
 
 const calculator = new Calculator()
@@ -127,8 +123,7 @@ export function FunctionalCalculator() {
         const lastSign = expression.charAt(
           expression.length - 1,
         )
-        const { lastSignIsOperator } =
-          checkLastSignIsOperator(expression)
+
         if (lastSignIsOperator) {
           setExpression(expression + value)
         } else if (lastSign === '(') {
@@ -173,29 +168,26 @@ export function FunctionalCalculator() {
         setExpression(value)
         setIsFinish(false)
       }
-    } else {
-      // sign as first
-      if (isError && !curValueIsOperator) {
-        setIsError(false)
-        setExpression(value)
-      } else if (isFinish && !curValueIsOperator) {
-        setIsFinish(false)
-        setExpression(value)
-      } else {
-        // sign need to be added
-        if (
-          !lastSignIsOperator &&
-          !isError &&
-          !lastSignIsOpenBracket
-        ) {
-          setExpression(expression + value)
-          setIsFinish(false)
-        } else if (!curValueIsOperator) {
-            setExpression(expression + value)
-            setIsFinish(false)
-          }
-      }
+    } else if (isError && !curValueIsOperator) {
+      setIsError(false)
+      setExpression(value)
+    } else if (isFinish && !curValueIsOperator) {
+      setIsFinish(false)
+      setExpression(value)
     }
+    // sign need to be added
+    else if (
+      !lastSignIsOperator &&
+      !isError &&
+      !lastSignIsOpenBracket
+    ) {
+      setExpression(expression + value)
+      setIsFinish(false)
+    } else if (!curValueIsOperator) {
+      setExpression(expression + value)
+      setIsFinish(false)
+    }
+
     // immediateResult
     if (
       curValueIsOperator &&

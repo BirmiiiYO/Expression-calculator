@@ -1,7 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
 import { btnValues } from '@constants/keyboard'
+import PropTypes from 'prop-types'
+import React from 'react'
 
 import { Button, Container, Row } from './styles'
 

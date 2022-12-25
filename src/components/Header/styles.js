@@ -1,5 +1,5 @@
-import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 const HeaderContainer = styled.div`
   align-items: center;
@@ -32,4 +32,4 @@ const Links = styled.div`
   justify-content: space-between;
   width: 350px;
 `
-export { CustomLink, HeaderContainer, Link, Title, Links }
+export { CustomLink, HeaderContainer, Link, Links, Title }

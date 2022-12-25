@@ -3,29 +3,44 @@
     "browser": true,
     "es2021": true
   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "extends": [
   "eslint:recommended",
   "plugin:react/recommended", 
-  "plugin:react/jsx-runtime",
   "plugin:react-hooks/recommended",
+  "plugin:prettier/recommended",
+  "plugin:import/recommended",
   "airbnb",
   "prettier"
 ],
   "parserOptions": {
     "ecmaFeatures": {
-      "jsx": true
+      "jsx": true,
+      "js": true
     },
-    "ecmaVersion": 12,
+    "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks"],
+  "plugins": ["better-styled-components", "simple-import-sort", "prettier", "react", "react-hooks"],
   "rules": {
-    "react-hooks/rules-of-hooks": "error",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
+    "import/prefer-default-export": "off",
+    "react/react-in-jsx-scope": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "react/jsx-no-constructed-context-values":"off",
+    "no-use-before-define":"off",
+    "max-classes-per-file":0,
+    "no-restricted-syntax":"off",
+    "simple-import-sort/imports": "error",
+    "no-useless-escape":"off",
+    "simple-import-sort/exports": "error",
+    "better-styled-components/sort-declarations-alphabetically": 2,
+    "sort-imports": "off",
+    "import/order": "off",
+    "default-param-last": "off"
   }
 }

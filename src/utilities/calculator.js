@@ -122,11 +122,11 @@ class RemainderCommand {
 }
 
 export {
-  ClearCommand,
-  Calculator,
   AddCommand,
-  SubtractCommand,
-  MultiplyCommand,
+  Calculator,
+  ClearCommand,
   DivideCommand,
+  MultiplyCommand,
   RemainderCommand,
+  SubtractCommand,
 }
