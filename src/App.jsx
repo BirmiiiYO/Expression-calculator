@@ -11,7 +11,6 @@ export const ThemeContext = React.createContext('')
 export const HistoryContext = React.createContext('')
 
 export const App = () => {
-  const zxc = 'zxc'
   const initialTheme = changeThemeForProvider(
     localStorage.getItem('theme'),
   )

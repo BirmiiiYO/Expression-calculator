@@ -14,7 +14,7 @@ export class ErrorBoundary extends React.Component {
   }
 
   componentDidCatch(error, errorInfo) {
-    console.log(error, errorInfo)
+    console.log(error, errorInfo) // eslint-disable-line no-console
   }
 
   render() {
