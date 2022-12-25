@@ -13,10 +13,12 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "lint": "eslint src/**/*.js src/**/*.jsx",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint --fix",
+    "precommit": "lint-staged"
   },
   "resolutions": {
     "styled-components": "^5"
@@ -40,11 +42,13 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.4.0",
     "eslint-plugin-better-styled-components": "^1.1.2",
-    "eslint-plugin-simple-import-sort": "^8.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.2",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-simple-import-sort": "^8.0.0",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
     "prettier": "^2.5.1",
     "react-app-rewire-alias": "^1.1.7",
     "react-app-rewired": "^2.2.1"

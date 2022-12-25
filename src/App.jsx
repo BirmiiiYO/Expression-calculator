@@ -10,7 +10,8 @@ import { ThemeProvider } from 'styled-components'
 export const ThemeContext = React.createContext('')
 export const HistoryContext = React.createContext('')
 
-export function App() {
+export const App = () => {
+  const zxc = 'zxc'
   const initialTheme = changeThemeForProvider(
     localStorage.getItem('theme'),
   )
