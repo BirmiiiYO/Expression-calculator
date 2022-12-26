@@ -1,21 +1,22 @@
 import styled from 'styled-components'
+import * as consts from '@styles/consts'
 
 const Container = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: ${consts.RANGE.M}px;
 `
 const Button = styled.button`
   background-color: ${({ theme }) => theme.text};
   border: none;
-  border-radius: 10px;
+  border-radius: ${consts.BORDER_RADIUS.L}px;
   color: ${({ theme }) => theme.header};
   cursor: pointer;
-  font-weight: 1000;
+  font-weight: ${consts.FONT_WEIGHT.XL};
   height: 70px;
-  margin: 10px;
+  margin: ${consts.RANGE.S}px;
   width: 70px;
   &:hover {
     opacity: 0.8;
@@ -24,6 +25,11 @@ const Button = styled.button`
     width: 50px;
     height: 50px;
     margin: 7px;
+  }
+  @media (max-width: 424px) {
+    width: 35px;
+    height: 35px;
+    margin: 5px;
   }
 `
 const Row = styled.div`

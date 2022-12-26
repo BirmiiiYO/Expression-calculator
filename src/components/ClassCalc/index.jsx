@@ -1,6 +1,9 @@
+import React from 'react'
+
 import { ControlPanel } from '@components/ControlPanel'
 import { Display } from '@components/Display'
 import { OPERATORS } from '@constants/operators'
+
 import {
   AddCommand,
   Calculator,
@@ -20,7 +23,6 @@ import {
   getLastNumberInExpr,
   numberIsFloat,
 } from '@utilities/mathOperations'
-import React from 'react'
 
 import { Wrapper } from './styles'
 

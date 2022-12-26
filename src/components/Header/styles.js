@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+import * as consts from '@styles/consts'
 
 const HeaderContainer = styled.div`
   align-items: center;
@@ -8,19 +9,19 @@ const HeaderContainer = styled.div`
   display: flex;
   height: 80px;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 ${consts.RANGE.M}px;
   width: 100%;
 `
 
 const Title = styled.h1`
-  font-size: 30px;
+  font-size: ${consts.FONT_SIZE.XL}px;
   font-style: italic;
 `
 
 const CustomLink = styled(Link)`
   color: ${({ theme }) => theme.text};
-  font-size: 20px;
-  margin: 10px;
+  font-size: ${consts.FONT_SIZE.M}px;
+  margin: ${consts.RANGE.S}px;
   &:hover {
     transform: scale(1.2);
   }

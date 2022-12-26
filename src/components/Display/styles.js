@@ -1,19 +1,20 @@
 import styled from 'styled-components'
+import * as consts from '@styles/consts'
 
 const DisplayBlock = styled.div`
   border-bottom: 5px solid;
-  padding: 5px;
+  padding: ${consts.RANGE.XS}px;
   text-align: right;
   width: 100%;
 `
 const Expression = styled.div`
-  font-size: 20px;
-  font-weight: 500;
+  font-size: ${consts.FONT_SIZE.M}px;
+  font-weight: ${consts.FONT_WEIGHT.M};
   text-align: right;
 `
 const Result = styled.div`
-  font-size: 14px;
-  font-weight: 400;
+  font-size: ${consts.FONT_SIZE.S}px;
+  font-weight: ${consts.FONT_WEIGHT.S};
   text-align: right;
 `
 

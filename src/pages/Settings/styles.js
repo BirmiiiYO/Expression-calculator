@@ -1,33 +1,34 @@
 import styled from 'styled-components'
+import * as consts from '@styles/consts'
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 500px;
   min-width: 90vw;
-  padding: 40px;
+  padding: ${consts.RANGE.XL}px;
 `
 
 const Title = styled.p`
-  font-size: 26px;
+  font-size: ${consts.FONT_SIZE.L}px;
   letter-spacing: 2px;
-  margin-bottom: 20px;
+  margin-bottom: ${consts.RANGE.M}px;
 `
 
 const MySelect = styled.select`
-  border-radius: 3px;
+  border-radius: ${consts.BORDER_RADIUS.S}px;
   cursor: pointer;
-  font-size: 25px;
-  margin: 10px 0;
-  padding: 5px;
+  font-size: ${consts.FONT_SIZE.L}px;
+  margin: ${consts.RANGE.S}px 0;
+  padding: ${consts.RANGE.XS}px;
   width: 160px;
 `
 const ClearButton = styled.button`
   background-color: white;
-  border-radius: 3px;
+  border-radius: ${consts.BORDER_RADIUS.XS}px;
   cursor: pointer;
-  font-size: 25px;
-  padding: 5px;
+  font-size: ${consts.FONT_SIZE.L}px;
+  padding: ${consts.RANGE.XS}px;
   width: 160px;
 `
 export { ClearButton, Container, MySelect, Title }

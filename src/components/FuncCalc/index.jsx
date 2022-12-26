@@ -1,7 +1,11 @@
+import React from 'react'
+
 import { ControlPanel } from '@components/ControlPanel'
 import { Display } from '@components/Display'
 import { OPERATORS } from '@constants/operators'
+
 import { HistoryContext } from '@src/App'
+
 import {
   AddCommand,
   Calculator,
@@ -20,13 +24,12 @@ import {
   generateErrorMsg,
   getLastNumberInExpr,
 } from '@utilities/mathOperations'
-import React from 'react'
 
 import { Wrapper } from './styles'
 
 const calculator = new Calculator()
 
-export function FunctionalCalculator() {
+export const FunctionalCalculator = () => {
   const { history, setHistory } =
     React.useContext(HistoryContext)
   const [expression, setExpression] = React.useState('0')

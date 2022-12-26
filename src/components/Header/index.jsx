@@ -7,15 +7,13 @@ import {
   Title,
 } from './styles'
 
-export function Header() {
-  return (
-    <HeaderContainer>
-      <Title>Calculator App</Title>
-      <Links>
-        <CustomLink to="/cc">Class</CustomLink>
-        <CustomLink to="/fc">Func</CustomLink>
-        <CustomLink to="/settings">Settings</CustomLink>
-      </Links>
-    </HeaderContainer>
-  )
-}
+export const Header = () => (
+  <HeaderContainer>
+    <Title>Calculator App</Title>
+    <Links>
+      <CustomLink to="/cc">Class</CustomLink>
+      <CustomLink to="/fc">Func</CustomLink>
+      <CustomLink to="/settings">Settings</CustomLink>
+    </Links>
+  </HeaderContainer>
+)

@@ -1,6 +1,8 @@
-import { HistoryContext, ThemeContext } from '@src/App'
-import { switchTheme } from '@utilities/changeTheme'
 import React from 'react'
+
+import { HistoryContext, ThemeContext } from '@src/App'
+
+import { switchTheme } from '@utilities/changeTheme'
 
 import {
   ClearButton,

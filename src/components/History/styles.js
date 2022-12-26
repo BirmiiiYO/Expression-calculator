@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import * as consts from '@styles/consts'
 
 const Container = styled.div`
   align-items: center;
@@ -18,8 +19,8 @@ const List = styled.ul.attrs(() => ({
 `
 const Title = styled.h1`
   color: ${({ theme }) => theme.text};
-  font-size: 26px;
-  margin-bottom: 10px;
+  font-size: ${consts.FONT_SIZE.L}px;
+  margin-bottom: ${consts.RANGE.S}px;
 `
 
 const Item = styled.li`
@@ -29,12 +30,12 @@ const Item = styled.li`
 const Button = styled.button`
   background: none;
   border: 1px solid ${({ theme }) => theme.text};
-  border-radius: 5px;
+  border-radius: ${consts.BORDER_RADIUS.S}px;
   color: ${({ theme }) => theme.text};
   cursor: pointer;
-  font-weight: 600;
-  margin-top: 20px;
-  padding: 5px 10px;
+  font-weight: ${consts.FONT_WEIGHT.L};
+  margin-top: ${consts.RANGE.M}px;
+  padding: ${consts.RANGE.XS}px ${consts.RANGE.S}px;
 `
 
 export { Button, Container, Item, List, Title }
