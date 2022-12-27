@@ -28,5 +28,16 @@ const RANGE = {
   L: 30,
   XL: 50,
 }
+const CENTER = `
+display: flex;
+justify-content: center;
+align-items:center;
+`
 
-export { BORDER_RADIUS, FONT_SIZE, FONT_WEIGHT, RANGE }
+export {
+  BORDER_RADIUS,
+  FONT_SIZE,
+  FONT_WEIGHT,
+  RANGE,
+  CENTER,
+}

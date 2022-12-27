@@ -28,5 +28,9 @@ const Button = styled.button`
   border: none;
   margin: ${consts.RANGE.XS}px;
 `
+const Image = styled.img`
+  height: 30px;
+  width: 30px;
+`
 
-export { Button, Container, Left, Right }
+export { Button, Container, Left, Right, Image }

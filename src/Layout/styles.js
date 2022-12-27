@@ -1,9 +1,11 @@
 import styled from 'styled-components'
+import { CENTER } from '@styles/consts'
 
 const LayoutWrapper = styled.div`
   align-items: center;
-  display: flex;
-  justify-content: center;
+  ${CENTER}
 `
-
-export { LayoutWrapper }
+const CalcWrapper = styled.div`
+  flex: 1 1 80%;
+`
+export { LayoutWrapper, CalcWrapper }

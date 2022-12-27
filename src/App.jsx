@@ -7,8 +7,7 @@ import { changeThemeForProvider } from '@utilities/changeTheme'
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
-export const ThemeContext = React.createContext('')
-export const HistoryContext = React.createContext('')
+import { ThemeContext, HistoryContext } from '@context'
 
 export const App = () => {
   const initialTheme = changeThemeForProvider(

@@ -1,8 +1,10 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react'
-
 import { ControlPanel } from '@components/ControlPanel'
 import { Display } from '@components/Display'
 import { OPERATORS } from '@constants/operators'
+
+import { HistoryContext } from '@context'
 
 import {
   AddCommand,
@@ -24,7 +26,7 @@ import {
   numberIsFloat,
 } from '@utilities/mathOperations'
 
-import { Wrapper } from './styles'
+import { CalcWrapper } from '@layout/styles'
 
 export class ClassCalculator extends React.Component {
   constructor(props) {
@@ -231,6 +233,14 @@ export class ClassCalculator extends React.Component {
       this.handleCalculation()
       this.calculator.executeCommand(new ClearCommand())
       this.setState({ result: '', isFinished: true })
+      this.context.setHistory([
+        ...this.context.history,
+        expression,
+      ])
+      localStorage.setItem(
+        'history',
+        JSON.stringify(this.context.history),
+      )
     }
   }
 
@@ -320,7 +330,7 @@ export class ClassCalculator extends React.Component {
   render() {
     const { expression, isError, result } = this.state
     return (
-      <Wrapper>
+      <CalcWrapper>
         <Display
           error={isError}
           value={expression}
@@ -329,7 +339,9 @@ export class ClassCalculator extends React.Component {
         <ControlPanel
           handleClick={this.handleExpressionValue}
         />
-      </Wrapper>
+      </CalcWrapper>
     )
   }
 }
+
+ClassCalculator.contextType = HistoryContext

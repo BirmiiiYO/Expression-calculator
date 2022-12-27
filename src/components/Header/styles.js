@@ -21,16 +21,14 @@ const Title = styled.h1`
 const CustomLink = styled(Link)`
   color: ${({ theme }) => theme.text};
   font-size: ${consts.FONT_SIZE.M}px;
-  margin: ${consts.RANGE.S}px;
+  margin: ${consts.RANGE.M}px;
   &:hover {
     transform: scale(1.2);
   }
 `
 
 const Links = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+  ${consts.CENTER}
   width: 350px;
 `
 export { CustomLink, HeaderContainer, Link, Links, Title }

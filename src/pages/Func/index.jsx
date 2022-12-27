@@ -6,7 +6,13 @@ import open from '@assets/forward-arrow.png'
 import { FunctionalCalculator } from '@components/FuncCalc'
 import { History } from '@components/History'
 
-import { Button, Container, Left, Right } from './styles'
+import {
+  Button,
+  Container,
+  Left,
+  Right,
+  Image,
+} from '@styles/stylesCalc'
 
 export const FuncCalc = () => {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -19,18 +25,13 @@ export const FuncCalc = () => {
         <FunctionalCalculator />
       </Left>
       <Button onClick={toggleHistory}>
-        <img
-          src={isOpen ? close : open}
-          width={30}
-          height={30}
-          alt="arrow"
-        />
+        <Image src={isOpen ? close : open} alt="arrow" />
       </Button>
-      {isOpen ? (
+      {isOpen && (
         <Right>
           <History />
         </Right>
-      ) : null}
+      )}
     </Container>
   )
 }

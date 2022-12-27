@@ -17,7 +17,7 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "lint": "eslint src/**/*.js src/**/*.jsx",
-    "lint:fix": "eslint --fix"
+    "lint:fix": "eslint src/**/*.js src/**/*.jsx --fix"
   },
   "resolutions": {
     "styled-components": "^5"

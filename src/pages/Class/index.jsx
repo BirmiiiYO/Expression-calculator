@@ -6,7 +6,13 @@ import open from '@assets/forward-arrow.png'
 import { ClassCalculator } from '@components/ClassCalc'
 import { History } from '@components/History'
 
-import { Button, Container, Left, Right } from './styles'
+import {
+  Button,
+  Container,
+  Left,
+  Right,
+  Image,
+} from '@styles/stylesCalc'
 
 export class ClassCalc extends React.Component {
   constructor(props) {
@@ -32,19 +38,14 @@ export class ClassCalc extends React.Component {
         </Left>
 
         <Button onClick={this.toggleHistory}>
-          <img
-            src={isOpen ? close : open}
-            width={30}
-            height={30}
-            alt="arrow"
-          />
+          <Image src={isOpen ? close : open} alt="arrow" />
         </Button>
 
-        {isOpen ? (
+        {isOpen && (
           <Right>
             <History />
           </Right>
-        ) : null}
+        )}
       </Container>
     )
   }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { HistoryContext } from '@src/App'
+import { HistoryContext } from '@context'
 
 import { Container, Item, List, Title } from './styles'
 

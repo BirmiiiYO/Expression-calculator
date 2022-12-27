@@ -18,7 +18,7 @@ export default createGlobalStyle`
     font-weight: ${consts.FONT_SIZE.M}px;
   }
   ::-webkit-scrollbar {
-    width: 16px; /* ширина для вертикального скролла */
+    width: 16px; 
     border-radius: ${consts.BORDER_RADIUS.L}px;
 }
 

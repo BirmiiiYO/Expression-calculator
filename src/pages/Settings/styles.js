@@ -14,15 +14,6 @@ const Title = styled.p`
   letter-spacing: 2px;
   margin-bottom: ${consts.RANGE.M}px;
 `
-
-const MySelect = styled.select`
-  border-radius: ${consts.BORDER_RADIUS.S}px;
-  cursor: pointer;
-  font-size: ${consts.FONT_SIZE.L}px;
-  margin: ${consts.RANGE.S}px 0;
-  padding: ${consts.RANGE.XS}px;
-  width: 160px;
-`
 const ClearButton = styled.button`
   background-color: white;
   border-radius: ${consts.BORDER_RADIUS.XS}px;
@@ -31,4 +22,4 @@ const ClearButton = styled.button`
   padding: ${consts.RANGE.XS}px;
   width: 160px;
 `
-export { ClearButton, Container, MySelect, Title }
+export { ClearButton, Container, Title }

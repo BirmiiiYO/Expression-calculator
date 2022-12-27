@@ -2,10 +2,9 @@ import styled from 'styled-components'
 import * as consts from '@styles/consts'
 
 const Container = styled.div`
-  align-items: center;
-  display: flex;
+  ${consts.CENTER}
   flex-direction: column;
-  justify-content: center;
+
   margin-top: ${consts.RANGE.M}px;
 `
 const Button = styled.button`
@@ -33,8 +32,7 @@ const Button = styled.button`
   }
 `
 const Row = styled.div`
-  display: flex;
-  justify-content: space-between;
+  ${consts.CENTER}
 `
 
 export { Button, Container, Row }

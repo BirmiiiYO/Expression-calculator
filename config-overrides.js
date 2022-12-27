@@ -11,6 +11,7 @@ module.exports = function override(config) {
     '@utilities': 'src/utilities',
     '@styles': 'src/styles',
     '@src': 'src',
+    '@context': 'src/context',
   })(config)
 
   return config

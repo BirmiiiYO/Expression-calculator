@@ -1,10 +1,14 @@
-import React from 'react'
+import React, {
+  useContext,
+  useState,
+  useEffect,
+} from 'react'
 
 import { ControlPanel } from '@components/ControlPanel'
 import { Display } from '@components/Display'
 import { OPERATORS } from '@constants/operators'
 
-import { HistoryContext } from '@src/App'
+import { HistoryContext } from '@context'
 
 import {
   AddCommand,
@@ -25,19 +29,17 @@ import {
   getLastNumberInExpr,
 } from '@utilities/mathOperations'
 
-import { Wrapper } from './styles'
+import { CalcWrapper } from '@layout/styles'
 
 const calculator = new Calculator()
 
 export const FunctionalCalculator = () => {
-  const { history, setHistory } =
-    React.useContext(HistoryContext)
-  const [expression, setExpression] = React.useState('0')
-  const [currentOperator, setCurrentOperator] =
-    React.useState('')
-  const [result, setResult] = React.useState('')
-  const [isError, setIsError] = React.useState(false)
-  const [isFinish, setIsFinish] = React.useState(false)
+  const { history, setHistory } = useContext(HistoryContext)
+  const [expression, setExpression] = useState('0')
+  const [currentOperator, setCurrentOperator] = useState('')
+  const [result, setResult] = useState('')
+  const [isError, setIsError] = useState(false)
+  const [isFinish, setIsFinish] = useState(false)
 
   const handleExpressionValue = (value) => {
     switch (value) {
@@ -268,18 +270,18 @@ export const FunctionalCalculator = () => {
         setResult(calculator.value.toString())
     }
   }
-  React.useEffect(() => {
+  useEffect(() => {
     localStorage.setItem('history', JSON.stringify(history))
   }, [history])
 
   return (
-    <Wrapper>
+    <CalcWrapper>
       <Display
         error={isError}
         value={expression}
         result={result}
       />
       <ControlPanel handleClick={handleExpressionValue} />
-    </Wrapper>
+    </CalcWrapper>
   )
 }
