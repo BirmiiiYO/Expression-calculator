@@ -1,4 +1,4 @@
-import * as consts from '@styles/consts'
+import * as consts from '@styles/themes'
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`

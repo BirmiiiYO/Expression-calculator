@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import * as consts from '@styles/consts'
+import * as consts from '@styles/themes'
 
 const ErrorTitle = styled.h1`
   margin-top: ${consts.RANGE.L}px;

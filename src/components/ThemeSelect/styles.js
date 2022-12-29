@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import * as consts from '@styles/consts'
+import * as consts from '@styles/themes'
 
 const MySelect = styled.select`
   border-radius: ${consts.BORDER_RADIUS.S}px;

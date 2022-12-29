@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { CENTER } from '@styles/consts'
+import { CENTER } from '@styles/themes'
 
 const LayoutWrapper = styled.div`
   align-items: center;
